@@ -7,45 +7,66 @@ body {
   padding: 0;
   overflow-x: hidden;
   opacity: 0; /* Start with the page hidden */
-  animation: fadeIn 2s ease-in-out forwards; /* Apply fade-in animation */
+  transform: translateY(-100vh); /* Start above the screen */
+  animation: dropIn 1.5s ease-out forwards; /* Apply drop-in animation */
 }
 
-/* Fade-In Animation */
-@keyframes fadeIn {
+/* Drop-In Animation */
+@keyframes dropIn {
   0% {
     opacity: 0;
+    transform: translateY(-100vh); /* Start off-screen above */
+  }
+  50% {
+    opacity: 0.5; /* Midway opacity */
+    transform: translateY(30vh); /* Drop a bit */
   }
   100% {
     opacity: 1;
+    transform: translateY(0); /* Set to normal position */
   }
 }
 
-/* Optional: Add a fade-in effect to specific elements like the header */
+/* Optional: Fade-In + Drop effect for header */
 header {
-  animation: fadeInHeader 2s ease-in-out forwards;
+  animation: dropInHeader 1.5s ease-out forwards;
   opacity: 0;
+  transform: translateY(-100vh);
 }
 
-@keyframes fadeInHeader {
+@keyframes dropInHeader {
   0% {
     opacity: 0;
+    transform: translateY(-100vh);
+  }
+  50% {
+    opacity: 0.5;
+    transform: translateY(30vh);
   }
   100% {
     opacity: 1;
+    transform: translateY(0);
   }
 }
 
-/* Optional: You can add delay to specific sections if you want them to fade in separately */
+/* Optional: Fade-In + Drop effect for specific sections */
 .section {
-  animation: fadeInSection 2s ease-in-out forwards;
+  animation: dropInSection 1.5s ease-out forwards;
   opacity: 0;
+  transform: translateY(-100vh); /* Start above the screen */
 }
 
-@keyframes fadeInSection {
+@keyframes dropInSection {
   0% {
     opacity: 0;
+    transform: translateY(-100vh); /* Start off-screen above */
+  }
+  50% {
+    opacity: 0.5; /* Midway opacity */
+    transform: translateY(30vh); /* Drop a bit */
   }
   100% {
     opacity: 1;
+    transform: translateY(0); /* Set to normal position */
   }
 }
