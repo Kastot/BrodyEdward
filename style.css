@@ -1,35 +1,51 @@
-#toggleButton {
-  position: fixed;
-  top: 1rem;
-  left: 1rem;
-  font-size: 2rem;
-  cursor: pointer;
-  color: #8a2be2;
-  z-index: 1100;
-  background: #0f0f0f;
-  padding: 0.3rem 0.6rem;
-  border-radius: 5px;
+/* Basic Page Styling */
+body {
+  background-color: #0f0f0f;
+  color: #e0e0e0;
+  font-family: "Fira Code", monospace;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  opacity: 0; /* Start with the page hidden */
+  animation: fadeIn 2s ease-in-out forwards; /* Apply fade-in animation */
 }
 
-.aside-wrapper {
-  position: fixed;
-  top: 0;
-  left: 0;
-  background-color: #1a1a1a;
-  height: 100vh;
-  width: 240px;
-  padding: 3rem 1rem 1rem 1rem; /* Padding to prevent overlap */
-  transform: translateX(-100%); /* Sidebar starts hidden */
-  transition: transform 0.3s ease;
-  z-index: 1000;
+/* Fade-In Animation */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
-#toggler:checked ~ .aside-wrapper {
-  transform: translateX(0); /* Sidebar shows when checkbox is checked */
+/* Optional: Add a fade-in effect to specific elements like the header */
+header {
+  animation: fadeInHeader 2s ease-in-out forwards;
+  opacity: 0;
 }
 
-.logo-text {
-  font-size: 1.8rem;
-  color: #8a2be2;
-  text-align: center;
+@keyframes fadeInHeader {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* Optional: You can add delay to specific sections if you want them to fade in separately */
+.section {
+  animation: fadeInSection 2s ease-in-out forwards;
+  opacity: 0;
+}
+
+@keyframes fadeInSection {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
