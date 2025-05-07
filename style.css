@@ -8,18 +8,26 @@ body {
   overflow-x: hidden;
   opacity: 0; /* Start with the page hidden */
   transform: translateY(-100vh); /* Start above the screen */
-  animation: dropIn 1.5s ease-out forwards; /* Apply drop-in animation */
+  animation: dropBounce 1.5s cubic-bezier(0.68, -0.55, 0.27, 1.55) forwards; /* Apply drop and bounce animation */
 }
 
-/* Drop-In Animation */
-@keyframes dropIn {
+/* Drop and Bounce Animation */
+@keyframes dropBounce {
   0% {
     opacity: 0;
     transform: translateY(-100vh); /* Start off-screen above */
   }
-  50% {
-    opacity: 0.5; /* Midway opacity */
-    transform: translateY(30vh); /* Drop a bit */
+  40% {
+    opacity: 1;
+    transform: translateY(20vh); /* Drop a little */
+  }
+  60% {
+    opacity: 1;
+    transform: translateY(-10vh); /* Bounce slightly above */
+  }
+  80% {
+    opacity: 1;
+    transform: translateY(5vh); /* Drop down a little */
   }
   100% {
     opacity: 1;
@@ -27,21 +35,29 @@ body {
   }
 }
 
-/* Optional: Fade-In + Drop effect for header */
+/* Optional: Apply the same effect to header */
 header {
-  animation: dropInHeader 1.5s ease-out forwards;
+  animation: dropBounceHeader 1.5s cubic-bezier(0.68, -0.55, 0.27, 1.55) forwards;
   opacity: 0;
   transform: translateY(-100vh);
 }
 
-@keyframes dropInHeader {
+@keyframes dropBounceHeader {
   0% {
     opacity: 0;
     transform: translateY(-100vh);
   }
-  50% {
-    opacity: 0.5;
-    transform: translateY(30vh);
+  40% {
+    opacity: 1;
+    transform: translateY(20vh);
+  }
+  60% {
+    opacity: 1;
+    transform: translateY(-10vh);
+  }
+  80% {
+    opacity: 1;
+    transform: translateY(5vh);
   }
   100% {
     opacity: 1;
@@ -49,24 +65,32 @@ header {
   }
 }
 
-/* Optional: Fade-In + Drop effect for specific sections */
+/* Optional: Apply the effect to specific sections */
 .section {
-  animation: dropInSection 1.5s ease-out forwards;
+  animation: dropBounceSection 1.5s cubic-bezier(0.68, -0.55, 0.27, 1.55) forwards;
   opacity: 0;
-  transform: translateY(-100vh); /* Start above the screen */
+  transform: translateY(-100vh);
 }
 
-@keyframes dropInSection {
+@keyframes dropBounceSection {
   0% {
     opacity: 0;
-    transform: translateY(-100vh); /* Start off-screen above */
+    transform: translateY(-100vh);
   }
-  50% {
-    opacity: 0.5; /* Midway opacity */
-    transform: translateY(30vh); /* Drop a bit */
+  40% {
+    opacity: 1;
+    transform: translateY(20vh);
+  }
+  60% {
+    opacity: 1;
+    transform: translateY(-10vh);
+  }
+  80% {
+    opacity: 1;
+    transform: translateY(5vh);
   }
   100% {
     opacity: 1;
-    transform: translateY(0); /* Set to normal position */
+    transform: translateY(0);
   }
 }
