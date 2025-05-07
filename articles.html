@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" href=""C:\Users\brody\Downloads\html5up-helios\icon.ico"" type="image/x-icon">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CodeScribe - Articles</title>
+  <style>
+    body {
+      background-color: #0f0f0f;
+      color: #e0e0e0;
+      font-family: "Fira Code", monospace;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background-color: #1a1a1a;
+      padding: 2rem;
+      text-align: center;
+    }
+    h1 {
+      margin: 0;
+      font-size: 2.5rem;
+      color: #8a2be2;
+    }
+    p {
+      font-size: 1.2rem;
+      max-width: 800px;
+      margin: 1rem auto;
+      line-height: 1.6;
+      color: #ccc;
+    }
+    .section {
+      padding: 2rem;
+      border-top: 1px solid #333;
+    }
+    .article-list {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-top: 1rem;
+    }
+    .article-list li {
+      margin: 1rem 0;
+      list-style-type: none;
+      text-align: center;
+    }
+    a {
+      color: #8a2be2;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Brody Edward</h1>
+  <p>Hacker. Writer. Explorer of the Cosmos. Founder of <strong>CodeScribe</strong>.</p>
+</header>
+
+<section class="section">
+  <h2>Recent Articles</h2>
+  <div class="article-list">
+    <li>
+      <a href="article1.html">Understanding Cybersecurity and Its Evolution</a>
+    </li>
+    <li>
+      <a href="article2.html">How Hackers Analyze Software: A Deep Dive</a>
+    </li>
+    <li>
+      <a href="article3.html">The Future of Space Exploration and Technology</a>
+    </li>
+    <li>
+      <a href="article4.html">Breaking Down the Interstellar Movie: A Scientific Perspective</a>
+    </li>
+  </div>
+</section>
+
+<section class="section">
+  <h2>Connect</h2>
+  <p>
+    Want to collaborate, learn more, or just talk tech and philosophy?
+  </p>
+  <p>Reach out via this email: 
+    <a href="mailto:BrodyGilesmail@gmail.com" id="emailLink" onclick="copyEmail(event)">BrodyGilesmail@gmail.com</a>
+  </p>
+
+  <script>
+    function copyEmail(event) {
+      event.preventDefault();
+      const email = event.target.textContent;
+      const tempInput = document.createElement('input');
+      tempInput.value = email;
+      document.body.appendChild(tempInput);
+      tempInput.select();
+      document.execCommand('copy');
+      document.body.removeChild(tempInput);
+      alert('Email copied to clipboard!');
+    }
+  </script>
+
+  <p>↑Click the email to copy↑</p>
+</section>
+
+</body>
+</html>
