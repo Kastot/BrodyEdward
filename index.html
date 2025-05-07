@@ -2,7 +2,6 @@
 <html lang="en">
 <head>
   <link rel="icon" href="/icon.ico" type="image/x-icon">
-
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>CodeScribe</title>
@@ -13,17 +12,21 @@
       font-family: "Fira Code", monospace;
       margin: 0;
       padding: 0;
+      overflow-x: hidden; /* Prevents horizontal scrolling */
     }
+
     header {
       background-color: #1a1a1a;
       padding: 2rem;
       text-align: center;
     }
+
     h1 {
       margin: 0;
       font-size: 2.5rem;
       color: #8a2be2;
     }
+
     p {
       font-size: 1.2rem;
       max-width: 800px;
@@ -31,10 +34,12 @@
       line-height: 1.6;
       color: #ccc;
     }
+
     .section {
       padding: 2rem;
       border-top: 1px solid #333;
     }
+
     .book-list {
       display: flex;
       justify-content: center;
@@ -42,13 +47,16 @@
       align-items: center;
       padding-top: 1rem;
     }
+
     .book-list li {
       margin: 0.5rem 0;
     }
+
     a {
       color: #8a2be2;
       text-decoration: none;
     }
+
     a:hover {
       text-decoration: underline;
     }
@@ -72,7 +80,7 @@
       display: none; /* Completely hide checkbox */
     }
 
-    /* Sidebar hidden by default */
+    /* Sidebar */
     .aside-wrapper {
       position: fixed;
       top: 0;
@@ -81,19 +89,13 @@
       height: 100vh;
       width: 240px;
       padding: 3rem 1rem 1rem 1rem;
-      transition: transform 0.3s ease;
+      transition: left 0.3s ease;
       z-index: 1000;
     }
 
     /* Sidebar slides in when checkbox is checked */
     #toggler:checked ~ .aside-wrapper {
-      transform: translateX(240px); /* Sidebar slides in */
-    }
-
-    .logo-text {
-      font-size: 1.8rem;
-      color: #8a2be2;
-      text-align: center;
+      left: 0; /* Sidebar slides in */
     }
 
   </style>
