@@ -12,7 +12,7 @@
       margin: 0;
       padding: 0;
       overflow-x: hidden;
-      animation: dropBounce 1.2s ease-out;
+      animation: dropBounce 0.95s ease-out;
     }
 
     @keyframes dropBounce {
@@ -34,12 +34,18 @@
       color: #8a2be2;
     }
 
+    h2 {
+      text-align: center;
+      color: #8a2be2;
+    }
+
     p {
       font-size: 1.2rem;
       max-width: 800px;
       margin: 1rem auto;
       line-height: 1.6;
       color: #ccc;
+      text-align: center;
     }
 
     /* Sidebar toggle button */
@@ -56,12 +62,10 @@
       border-radius: 5px;
     }
 
-    /* Hidden checkbox */
     #toggler {
       display: none;
     }
 
-    /* Sidebar styles */
     aside {
       position: fixed;
       top: 0;
@@ -76,7 +80,6 @@
       padding-left: 1rem;
     }
 
-    /* Sidebar visible */
     #toggler:checked + label + aside {
       transform: translateX(0);
     }
@@ -93,10 +96,30 @@
       text-decoration: none;
       display: block;
       margin: 1rem;
+      text-align: center;
     }
 
     a:hover {
       text-decoration: underline;
+    }
+
+    .section {
+      padding: 2rem;
+    }
+
+    .book-list {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .book-list ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .book-list li {
+      margin: 1rem 0;
+      font-size: 1.1rem;
     }
   </style>
 </head>
@@ -112,81 +135,78 @@
     <a href="articles.html">Visit Articles</a>
   </aside>
 
-<!-- Working Sidebar Toggle Setup -->
-<input type="checkbox" id="toggler">
-<label for="toggler" class="toggle-button">☰</label>
+  <!-- Main Content -->
+  <header>
+    <h1>Brody Edward</h1>
+    <p>Hacker. Writer. Explorer of the Cosmos. Founder of <strong>CodeScribe</strong>.</p>
+  </header>
 
-<aside>
-  <div class="logo-text">Brody Edward</div>
-  <a href="articles.html">Visit Articles</a>
-</aside>
+  <section class="section">
+    <h2>Read My Articles</h2>
+    <p>Check out my latest articles on a variety of topics.</p>
+    <a href="articles.html">Visit Articles</a>
+  </section>
 
-<!-- Main Site Content Starts Here -->
-<header>
-  <h1>Brody Edward</h1>
-  <p>Hacker. Writer. Explorer of the Cosmos. Founder of <strong>CodeScribe</strong>.</p>
-</header>
+  <section class="section">
+    <h2>About Me</h2>
+    <p>
+      I'm a 16-year-old with a passion for computers, cybersecurity, and storytelling. 
+      I enjoy exploit development, reverse engineering, and malware analysis. I also build tools—from FPS boosters to password analyzers—designed for performance and insight.
+    </p>
+    <p>
+      When I am not programming, writing, or studying, I read books. Currently I am reading the book, 
+      <em>"Astrophysics for People in a Hurry"</em> by Neil DeGrasse Tyson and <em>The Iliad</em> by Homer.
+    </p>
+  </section>
 
-<section class="section">
-  <h2>Read My Articles</h2>
-  <p>Check out my latest articles on a variety of topics.</p>
-  <a href="articles.html">Visit Articles</a>
-</section>
-
-<section class="section">
-  <h2>About Me</h2>
-  <p>
-    I'm a 16-year-old with a passion for computers, cybersecurity, and storytelling. 
-    I enjoy exploit development, reverse engineering, and malware analysis. I also build tools—from FPS boosters to password analyzers—designed for performance and insight.
-  </p>
-  <p>
-    When I am not programming, writing, or studying, I read books. Currently I am reading the book, "Astrophysics for People in a Hurry", by Neil Degrasse Tyson. and Homer, The Iliad.
-  </p>
-</section>
-
-<section class="section">
-  <h2>Currently reading, and suggested books.</h2>
-  <div class="book-list">
-    <li>
-      <a href="https://www.goodreads.com/book/show/32191710-astrophysics-for-people-in-a-hurry" target="_blank">
-        <strong>Astrophysics for People in a Hurry</strong>
-      </a> by Neil deGrasse Tyson
-    </li>
-    <li>
-      <a href="https://www.goodreads.com/book/show/59365876-odyssey-and-the-iliad" target="_blank">
-        <strong>Odyssey and the Iliad</strong>
-      </a> by Homer
-    </li>
-  </div>
-</section>
-
-<section class="section">
-  <h2>Connect</h2>
-  <p>Want to collaborate, learn more, or just talk tech and philosophy?</p>
-  <p>
-    Reach out via this email: 
-    <a href="mailto:BrodyGilesmail@gmail.com" id="emailLink" onclick="copyEmail(event)">BrodyGilesmail@gmail.com</a>
-  </p>
-
-  <script>
-    function copyEmail(event) {
-      event.preventDefault();
-      const email = event.target.textContent;
-      const tempInput = document.createElement('input');
-      tempInput.value = email;
-      document.body.appendChild(tempInput);
-      tempInput.select();
-      document.execCommand('copy');
-      document.body.removeChild(tempInput);
-      alert('Email copied to clipboard!');
-    }
-  </script>
-
-  <p>↑Click the email to copy↑</p>
-</section>
-
-
-
+  <section class="section">
+    <h2 style="text-align: center;">Currently Reading & Suggested Books</h2>
+    <ul style="list-style: none; padding-left: 0; display: flex; flex-direction: column; align-items: center;">
+      <li style="margin-bottom: 1rem; display: flex; align-items: center; justify-content: center;">
+        <span style="margin-right: 1rem;">•</span>
+        <a href="https://www.goodreads.com/book/show/32191710-astrophysics-for-people-in-a-hurry" target="_blank" style="color: #8a2be2; text-decoration: none; margin-right: 1rem;">
+          <strong>Astrophysics for People in a Hurry</strong>
+        </a>
+        <span style="color: #aaa;">by Neil deGrasse Tyson</span>
+      </li>
+      <li style="margin-bottom: 1rem; display: flex; align-items: center; justify-content: center;">
+        <span style="margin-right: 1rem;">•</span>
+        <a href="https://www.goodreads.com/book/show/59365876-odyssey-and-the-iliad" target="_blank" style="color: #8a2be2; text-decoration: none; margin-right: 1rem;">
+          <strong>Odyssey and the Iliad</strong>
+        </a>
+        <span style="color: #aaa;">by Homer</span>
+      </li>
+    </ul>
+  </section>
   
+  
+  
+  
+  
+
+  <section class="section">
+    <h2>Connect</h2>
+    <p>Want to collaborate, learn more, or just talk tech and philosophy?</p>
+    <p>
+      Reach out via this email: 
+      <a href="mailto:BrodyGilesmail@gmail.com" id="emailLink" onclick="copyEmail(event)">BrodyGilesmail@gmail.com</a>
+    </p>
+    <p>↑ Click the email to copy ↑</p>
+
+    <script>
+      function copyEmail(event) {
+        event.preventDefault();
+        const email = event.target.textContent;
+        const tempInput = document.createElement('input');
+        tempInput.value = email;
+        document.body.appendChild(tempInput);
+        tempInput.select();
+        document.execCommand('copy');
+        document.body.removeChild(tempInput);
+        alert('Email copied to clipboard!');
+      }
+    </script>
+  </section>
+
 </body>
 </html>
