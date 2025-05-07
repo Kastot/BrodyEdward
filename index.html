@@ -1,4 +1,4 @@
-wa<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <link rel="icon" href="/icon.ico" type="image/x-icon">
@@ -80,7 +80,7 @@ wa<!DOCTYPE html>
       z-index: 1000;
     }
 
-    #toggler ~ .aside-wrapper {
+    #toggler:checked ~ .aside-wrapper {
       transform: translateX(0); /* Sidebar shows when checkbox is checked */
     }
 
@@ -92,6 +92,7 @@ wa<!DOCTYPE html>
   </style>
 </head>
 <body>
+  <!-- Checkbox should be unchecked by default -->
   <input type="checkbox" id="toggler" />
   <label for="toggler" id="toggleButton">☰</label>
 
