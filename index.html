@@ -123,6 +123,81 @@
     <p>Check out my latest articles on a variety of topics.</p>
     <a href="articles.html">Visit Articles</a>
   </section>
+<!-- Working Sidebar Toggle Setup -->
+<input type="checkbox" id="toggler">
+<label for="toggler" class="toggle-button">☰</label>
 
+<aside>
+  <div class="logo-text">Brody Edward</div>
+  <a href="articles.html">Visit Articles</a>
+</aside>
+
+<!-- Main Site Content Starts Here -->
+<header>
+  <h1>Brody Edward</h1>
+  <p>Hacker. Writer. Explorer of the Cosmos. Founder of <strong>CodeScribe</strong>.</p>
+</header>
+
+<section class="section">
+  <h2>Read My Articles</h2>
+  <p>Check out my latest articles on a variety of topics.</p>
+  <a href="articles.html">Visit Articles</a>
+</section>
+
+<section class="section">
+  <h2>About Me</h2>
+  <p>
+    I'm a 16-year-old with a passion for computers, cybersecurity, and storytelling. 
+    I enjoy exploit development, reverse engineering, and malware analysis. I also build tools—from FPS boosters to password analyzers—designed for performance and insight.
+  </p>
+  <p>
+    When I am not programming, writing, or studying, I read books. Currently I am reading the book, "Astrophysics for People in a Hurry", by Neil Degrasse Tyson. and Homer, The Iliad.
+  </p>
+</section>
+
+<section class="section">
+  <h2>Currently reading, and suggested books.</h2>
+  <div class="book-list">
+    <li>
+      <a href="https://www.goodreads.com/book/show/32191710-astrophysics-for-people-in-a-hurry" target="_blank">
+        <strong>Astrophysics for People in a Hurry</strong>
+      </a> by Neil deGrasse Tyson
+    </li>
+    <li>
+      <a href="https://www.goodreads.com/book/show/59365876-odyssey-and-the-iliad" target="_blank">
+        <strong>Odyssey and the Iliad</strong>
+      </a> by Homer
+    </li>
+  </div>
+</section>
+
+<section class="section">
+  <h2>Connect</h2>
+  <p>Want to collaborate, learn more, or just talk tech and philosophy?</p>
+  <p>
+    Reach out via this email: 
+    <a href="mailto:BrodyGilesmail@gmail.com" id="emailLink" onclick="copyEmail(event)">BrodyGilesmail@gmail.com</a>
+  </p>
+
+  <script>
+    function copyEmail(event) {
+      event.preventDefault();
+      const email = event.target.textContent;
+      const tempInput = document.createElement('input');
+      tempInput.value = email;
+      document.body.appendChild(tempInput);
+      tempInput.select();
+      document.execCommand('copy');
+      document.body.removeChild(tempInput);
+      alert('Email copied to clipboard!');
+    }
+  </script>
+
+  <p>↑Click the email to copy↑</p>
+</section>
+
+
+
+  
 </body>
 </html>
