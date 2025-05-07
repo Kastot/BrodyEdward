@@ -67,11 +67,16 @@
       border-radius: 5px;
     }
 
-    /* Hidden by default */
+    /* Hidden checkbox */
+    #toggler {
+      display: none; /* Hide checkbox */
+    }
+
+    /* Sidebar hidden by default */
     .aside-wrapper {
       position: fixed;
       top: 0;
-      left: -240px; /* Sidebar hidden off-screen */
+      left: -240px; /* Sidebar is off-screen initially */
       background-color: #1a1a1a;
       height: 100vh;
       width: 240px;
@@ -80,7 +85,7 @@
       z-index: 1000;
     }
 
-    /* Show when checkbox is checked */
+    /* Sidebar visible when checkbox is checked */
     #toggler:checked ~ .aside-wrapper {
       transform: translateX(240px); /* Sidebar slides in */
     }
@@ -94,8 +99,8 @@
   </style>
 </head>
 <body>
-  <!-- The checkbox input controls the sidebar -->
-  <input type="checkbox" id="toggler" style="display:none;" />
+  <!-- Hidden checkbox -->
+  <input type="checkbox" id="toggler" />
   <label for="toggler" id="toggleButton">☰</label>
 
   <!-- Sidebar content -->
