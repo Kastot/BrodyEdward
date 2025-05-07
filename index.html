@@ -1,27 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <link rel="icon" href="/icon.ico" type="image/x-icon">
+
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>CodeScribe</title>
-  <link rel="icon" href="/icon.ico" type="image/x-icon">
-
   <style>
-    @keyframes fadeInUp {
-      25% {
-        opacity: 0;
-        transform: translateY(60px);
-      }
-      100% {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    .fade-in-up {
-      animation: fadeInUp 1.5s ease-out both;
-    }
-
     body {
       background-color: #0f0f0f;
       color: #e0e0e0;
@@ -29,19 +14,16 @@
       margin: 0;
       padding: 0;
     }
-
     header {
       background-color: #1a1a1a;
       padding: 2rem;
       text-align: center;
     }
-
     h1 {
       margin: 0;
       font-size: 2.5rem;
       color: #8a2be2;
     }
-
     p {
       font-size: 1.2rem;
       max-width: 800px;
@@ -49,12 +31,10 @@
       line-height: 1.6;
       color: #ccc;
     }
-
     .section {
       padding: 2rem;
       border-top: 1px solid #333;
     }
-
     .book-list {
       display: flex;
       justify-content: center;
@@ -62,28 +42,29 @@
       align-items: center;
       padding-top: 1rem;
     }
-
     .book-list li {
       margin: 0.5rem 0;
     }
-
     a {
       color: #8a2be2;
       text-decoration: none;
     }
-
     a:hover {
       text-decoration: underline;
     }
 
+    /* Sidebar styles */
     #toggleButton {
-      position: absolute;
+      position: fixed;
       top: 1rem;
       left: 1rem;
-      font-size: 1.5rem;
+      font-size: 2rem;
       cursor: pointer;
       color: #8a2be2;
-      z-index: 1000;
+      z-index: 1100;
+      background: #0f0f0f;
+      padding: 0.3rem 0.6rem;
+      border-radius: 5px;
     }
 
     .aside-wrapper {
@@ -92,15 +73,15 @@
       left: 0;
       background-color: #1a1a1a;
       height: 100vh;
-      width: 125;
-      padding: 1rem;
-      transform: translateX(-100%);
+      width: 240px;
+      padding: 3rem 1rem 1rem 1rem; /* Padding to prevent overlap */
+      transform: translateX(-100%); /* Sidebar starts hidden */
       transition: transform 0.3s ease;
-      z-index: 999;
+      z-index: 1000;
     }
 
     #toggler:checked ~ .aside-wrapper {
-      transform: translateX(0);
+      transform: translateX(0); /* Sidebar shows when checkbox is checked */
     }
 
     .logo-text {
@@ -108,81 +89,85 @@
       color: #8a2be2;
       text-align: center;
     }
-
-    #toggler {
-      display: none;
-    }
   </style>
 </head>
-
 <body>
-  <input type="checkbox" id="toggler" checked />
+  <input type="checkbox" id="toggler" />
   <label for="toggler" id="toggleButton">☰</label>
+
   <aside class="aside-wrapper">
-      <h1 class="logo-text">‎Brody Edward</h1>
+    <h1 class="logo-text">Brody Giles</h1>
+    <!-- Sidebar content here -->
   </aside>
 
-  <div class="fade-in-up">
-    <header>
-      <h1>Brody Edward</h1>
-      <p>Hacker. Writer. Explorer of the Cosmos. Founder of <strong>CodeScribe</strong>.</p>
-    </header>
+  <header>
+    <h1>Brody Edward</h1>
+    <p>Hacker. Writer. Explorer of the Cosmos. Founder of <strong>CodeScribe</strong>.</p>
+  </header>
 
-    <section class="section">
-      <h2>Read My Articles</h2>
-      <p>Check out my latest articles on a variety of topics.</p>
-      <a href="articles.html">Visit Articles</a>
-    </section>
+  <section class="section">
+    <h2>Read My Articles</h2>
+    <p>Check out my latest articles on a variety of topics.</p>
+    <a href="articles.html" style="color: #8a2be2; text-decoration: none;">Visit Articles</a>
+  </section>
 
-    <section class="section">
-      <h2>About Me</h2>
-      <p>
-        I'm a 16-year-old with a passion for computers, cybersecurity, and storytelling. 
-        I enjoy exploit development, reverse engineering, and malware analysis. I also build tools—from FPS boosters to password analyzers—designed for performance and insight.
-      </p>
-      <p>
-        When I am not programming, writing, or studying, I read books. Currently I am reading the book, "Astrophysics for People in a Hurry", by Neil Degrasse Tyson. and Homer, The Iliad.
-      </p>
-    </section>
+  <section class="section">
+    <h2>About Me</h2>
+    <p>
+      I'm a 16-year-old with a passion for computers, cybersecurity, and storytelling. 
+      I enjoy exploit development, reverse engineering, and malware analysis. I also build tools—from FPS boosters to password analyzers—designed for performance and insight.
+    </p>
+    <p>
+      When I am not programming, writing, or studying, I read books. Currently I am reading the book, "Astrophysics for People in a Hurry", by Neil Degrasse Tyson. and Homer, The Iliad.
+    </p>
+  </section>
 
-    <section class="section">
-      <h2>Currently reading, and suggested books.</h2>
-      <div class="book-list">
-        <li>
-          <a href="https://www.goodreads.com/book/show/32191710-astrophysics-for-people-in-a-hurry" target="_blank">
-            <strong>Astrophysics for People in a Hurry</strong>
-          </a> by Neil deGrasse Tyson
-        </li>
-        <li>
-          <a href="https://www.goodreads.com/book/show/59365876-odyssey-and-the-iliad" target="_blank">
-            <strong>Odyssey and the Iliad</strong>
-          </a> by Homer
-        </li>
-      </div>
-    </section>
+  <section class="section">
+    <h2>Currently reading, and suggested books.</h2>
+    <div class="book-list">
+      <li>
+        <a href="https://www.goodreads.com/book/show/32191710-astrophysics-for-people-in-a-hurry" target="_blank">
+          <strong>Astrophysics for People in a Hurry</strong>
+        </a> by Neil deGrasse Tyson
+      </li>
+      <li>
+        <a href="https://www.goodreads.com/book/show/59365876-odyssey-and-the-iliad" target="_blank">
+          <strong>Odyssey and the Iliad</strong>
+        </a> by Homer
+      </li>
+    </div>
+  </section>
 
-    <section class="section">
-      <h2>Connect</h2>
-      <p>Want to collaborate, learn more, or just talk tech and philosophy?</p>
-      <p>Reach out via this email: 
-        <a href="mailto:BrodyGilesmail@gmail.com" id="emailLink" onclick="copyEmail(event)">BrodyGilesmail@gmail.com</a>
-      </p>
-      <p>↑Click the email to copy↑</p>
-    </section>
-  </div>
+  <section class="section">
+    <h2>Connect</h2>
+    <p>
+      Want to collaborate, learn more, or just talk tech and philosophy?
+    </p>
+    <p>Reach out via this email: 
+      <a href="mailto:BrodyGilesmail@gmail.com" id="emailLink" onclick="copyEmail(event)">BrodyGilesmail@gmail.com</a>
+    </p>
 
-  <script>
-    function copyEmail(event) {
-      event.preventDefault();
-      const email = event.target.textContent;
-      const tempInput = document.createElement('input');
-      tempInput.value = email;
-      document.body.appendChild(tempInput);
-      tempInput.select();
-      document.execCommand('copy');
-      document.body.removeChild(tempInput);
-      alert('Email copied to clipboard!');
-    }
-  </script>
+    <script>
+      function copyEmail(event) {
+        event.preventDefault();
+
+        const email = event.target.textContent;
+
+        const tempInput = document.createElement('input');
+        tempInput.value = email;
+        document.body.appendChild(tempInput);
+
+        tempInput.select();
+        document.execCommand('copy');
+
+        document.body.removeChild(tempInput);
+
+        alert('Email copied to clipboard!');
+      }
+    </script>
+
+    <p>↑Click the email to copy↑</p>
+  </section>
+
 </body>
 </html>
