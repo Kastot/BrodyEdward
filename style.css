@@ -8,7 +8,7 @@
   z-index: 1100;
   background: #0f0f0f;
   padding: 0.3rem 0.6rem;
-  border-radius: 5px;
+  border-radius: 50px;
 }
 
 .aside-wrapper {
@@ -31,5 +31,5 @@
 .logo-text {
   font-size: 1.8rem;
   color: #8a2be2;
-  text-align: center;
+  text-align: left;
 }
