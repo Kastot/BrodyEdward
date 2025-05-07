@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   <link rel="icon" href="/icon.ico" type="image/x-icon">
+
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>CodeScribe</title>
@@ -12,22 +13,17 @@
       font-family: "Fira Code", monospace;
       margin: 0;
       padding: 0;
-      overflow-x: hidden; /* Prevents horizontal scrolling */
     }
-
     header {
       background-color: #1a1a1a;
       padding: 2rem;
       text-align: center;
-      z-index: 1000; /* Keeps header on top */
     }
-
     h1 {
       margin: 0;
       font-size: 2.5rem;
       color: #8a2be2;
     }
-
     p {
       font-size: 1.2rem;
       max-width: 800px;
@@ -35,12 +31,10 @@
       line-height: 1.6;
       color: #ccc;
     }
-
     .section {
       padding: 2rem;
       border-top: 1px solid #333;
     }
-
     .book-list {
       display: flex;
       justify-content: center;
@@ -48,16 +42,13 @@
       align-items: center;
       padding-top: 1rem;
     }
-
     .book-list li {
       margin: 0.5rem 0;
     }
-
     a {
       color: #8a2be2;
       text-decoration: none;
     }
-
     a:hover {
       text-decoration: underline;
     }
@@ -65,38 +56,44 @@
     /* Sidebar styles */
     #toggleButton {
       position: fixed;
-      top: 1.5rem; /* Adjusted to create space between the button and the header */
-      left: 1.5rem; /* Adjusted to prevent overlap */
+      top: 1rem;
+      left: 1rem;
       font-size: 2rem;
       cursor: pointer;
       color: #8a2be2;
-      z-index: 1100; /* Keeps button on top */
+      z-index: 1100;
       background: #0f0f0f;
       padding: 0.3rem 0.6rem;
       border-radius: 5px;
     }
 
-    /* Hide the checkbox entirely */
+    /* Hidden checkbox */
     #toggler {
-      display: none; /* Completely hide checkbox */
+      display: none; /* Hide checkbox */
     }
 
-    /* Sidebar */
+    /* Sidebar hidden by default */
     .aside-wrapper {
       position: fixed;
       top: 0;
-      left: 300; /* Sidebar off-screen initially */
+      left: -240px; /* Sidebar is off-screen initially */
       background-color: #1a1a1a;
       height: 100vh;
       width: 240px;
       padding: 3rem 1rem 1rem 1rem;
-      transition: left 0.3s ease;
+      transition: transform 0.3s ease;
       z-index: 1000;
     }
 
-    /* Sidebar slides in when checkbox is checked */
+    /* Sidebar visible when checkbox is checked */
     #toggler:checked ~ .aside-wrapper {
-      left: 0; /* Sidebar slides in */
+      transform: translateX(240px); /* Sidebar slides in */
+    }
+
+    .logo-text {
+      font-size: 1.8rem;
+      color: #8a2be2;
+      text-align: center;
     }
 
   </style>
