@@ -67,21 +67,22 @@
       border-radius: 5px;
     }
 
+    /* Hidden by default */
     .aside-wrapper {
       position: fixed;
       top: 0;
-      left: 0;
+      left: -240px; /* Sidebar hidden off-screen */
       background-color: #1a1a1a;
       height: 100vh;
       width: 240px;
-      padding: 3rem 1rem 1rem 1rem; /* Padding to prevent overlap */
-      transform: translateX(-100%); /* Sidebar starts hidden */
+      padding: 3rem 1rem 1rem 1rem;
       transition: transform 0.3s ease;
       z-index: 1000;
     }
 
+    /* Show when checkbox is checked */
     #toggler:checked ~ .aside-wrapper {
-      transform: translateX(0); /* Sidebar shows when checkbox is checked */
+      transform: translateX(240px); /* Sidebar slides in */
     }
 
     .logo-text {
@@ -89,16 +90,18 @@
       color: #8a2be2;
       text-align: center;
     }
+
   </style>
 </head>
 <body>
-  <!-- Checkbox should be unchecked by default -->
-  <input type="checkbox" id="toggler" />
+  <!-- The checkbox input controls the sidebar -->
+  <input type="checkbox" id="toggler" style="display:none;" />
   <label for="toggler" id="toggleButton">☰</label>
 
+  <!-- Sidebar content -->
   <aside class="aside-wrapper">
     <h1 class="logo-text">Brody Giles</h1>
-    <!-- Sidebar content here -->
+    <!-- Sidebar content goes here -->
   </aside>
 
   <header>
