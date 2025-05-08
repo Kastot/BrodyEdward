@@ -1,11 +1,10 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="icon" href=""C:\Users\brody\Downloads\html5up-helios\icon.ico"" type="image/x-icon">
+  <link rel="icon" href="icon.ico" type="image/x-icon">
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Conquering the fear and failure</title>
+  <title>Conquering the Fear and Failure</title>
   <style>
     body {
       background-color: #0f0f0f;
@@ -13,17 +12,29 @@
       font-family: "Fira Code", monospace;
       margin: 0;
       padding: 0;
+      overflow-x: hidden;
+      animation: dropBounce 0.95s ease-out;
     }
+
+    @keyframes dropBounce {
+      0% { transform: translateY(-100vh); opacity: 0; }
+      60% { transform: translateY(30px); opacity: 1; }
+      80% { transform: translateY(-10px); }
+      100% { transform: translateY(0); }
+    }
+
     header {
       background-color: #1a1a1a;
       padding: 2rem;
       text-align: center;
     }
+
     h1 {
       margin: 0;
       font-size: 2.5rem;
       color: #8a2be2;
     }
+
     p {
       font-size: 1.2rem;
       max-width: 800px;
@@ -31,84 +42,169 @@
       line-height: 1.6;
       color: #ccc;
     }
+
     .section {
       padding: 2rem;
       border-top: 1px solid #333;
     }
+
     .article-list {
       display: flex;
       flex-direction: column;
       align-items: center;
       padding-top: 1rem;
     }
+
     .article-list li {
       margin: 1rem 0;
       list-style-type: none;
       text-align: center;
     }
+
     a {
       color: #8a2be2;
       text-decoration: none;
     }
+
     a:hover {
       text-decoration: underline;
+    }
+
+    /* Sidebar toggle button */
+    .toggle-button {
+      position: fixed;
+      top: 1rem;
+      left: 1rem;
+      font-size: 2rem;
+      cursor: pointer;
+      color: #8a2be2;
+      z-index: 1001;
+      background: #0f0f0f;
+      padding: 0.3rem 0.6rem;
+      border-radius: 5px;
+    }
+
+    #toggler {
+      display: none;
+    }
+
+    aside {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 240px;
+      background-color: #1a1a1a;
+      transform: translateX(-100%);
+      transition: transform 0.3s ease;
+      z-index: 1000;
+      padding-top: 4rem;
+      padding-left: 1rem;
+    }
+
+    #toggler:checked + label + aside {
+      transform: translateX(0);
+    }
+
+    .logo-text {
+      font-size: 1.8rem;
+      color: #8a2be2;
+      text-align: center;
+      margin-bottom: 2rem;
     }
   </style>
 </head>
 <body>
 
-<header>
-  <h1>Conquering the Fear of Failure: A Journey from Doubt to Action.html</h1>
-  <p>Did you know that the fear of failure is one of the most common reasons people avoid pursuing their goals? In fact, roughly 31% of adults admit that this fear has held them back from reaching their full potential.
-As a creative person, I’ve struggled with this fear myself. It’s something I’ve faced over and over again. Whether I’m sharing my work or simply creating, there’s always a voice in the back of my mind that makes me doubt myself.
-Overcoming these challenges isn’t easy, but it’s possible. For me, much of this fear comes from my OCD and imposter syndrome. I can remember countless times when I gave up on projects because of this overwhelming fear of failure. I convinced myself that nothing I created was good enough. That I was setting myself up for failure—even when the project was actually fine. If it wasn’t perfect, I got frustrated and walked away.
-My OCD amplified this fear. I ended up obsessing over the tiniest details for hours, sometimes even days, only to delete the project afterward.
-Before we dive into how to overcome fear, we need to understand what’s happening in our brains. Fear, and especially the fear of failure, is deeply embedded in our brain’s response system. When we perceive a threat, our amygdala triggers the hypothalamus, which increases our heart rate and causes us to sweat. This physical reaction is overwhelming and can make overcoming fear feel impossible.
-However, our brains can also trick us. In situations like the fear of failure, the prefrontal cortex—the part of the brain responsible for rational thought—tries to assess the situation. But when fear becomes overwhelming, like with imposter syndrome, it can be hard to stop the emotional response from the amygdala. This makes overcoming fear especially challenging.
-To get over your fear of failure, you need to accept that fear is a necessity of life. Fear is natural—it’s a part of being human. But you must recognize it and challenge it.
-One of the main challenges of fear is understanding what makes us fear what we fear. A lot of the time, we don’t fear failure itself—we fear what failure represents. We fear embarrassment, rejection, or proving to ourselves that we aren’t good enough. But what if we flipped that mindset? What if, instead of seeing failure as a confirmation of our worst fears, we saw it as proof that we’re pushing ourselves beyond our comfort zones?
-Think of people like Elon Musk and Steve Jobs. Musk nearly had his companies go bankrupt—multiple times—before he became the richest person in the world. There was a point when Tesla was on the verge of collapse, and SpaceX had failed three rocket launches in a row. If the fourth attempt had failed, there wouldn’t be a SpaceX today. But he didn’t stop. He pushed forward despite the setbacks, and now, he’s reshaping entire industries.
-Then there’s Steve Jobs. He was fired from his own company—Apple—after internal conflicts with the board. Imagine that: getting kicked out of the company you built from the ground up. But instead of giving up, he created a new company, Next, which Apple later acquired. Jobs returned as CEO and turned Apple into the tech giant we know today.
-The difference between people like Musk, Jobs, and the ones who never make it? They didn’t let failure define them. They used it as a lesson, a stepping stone, and ultimately, fuel for their success.
-It’s easy to hear stories like Musk’s or Jobs’ and think, Yeah, but they’re geniuses. That’s different. But the truth is, they weren’t guaranteed success. They had no way of knowing if they’d make it or if they were just wasting their time. The only reason they succeeded is that they kept going.
-So, how do you apply this mindset to your own life?
-Failure is not proof that you are not good enough; it is just proof that you are tired. If you never fail, that means you never push yourself enough. Instead of seeing it as a wall, you must look at it as stepping stones to the future of success. Start thinking, “What did I learn from this?”
-You must focus on progress, not perfectionism. Perfectionism is one of the main reasons people stop as soon as they fail at something. You do not need to be perfect; you need to be persistent.
-Think about something you’ve been putting off because of fear. Maybe it’s starting a project, learning a new skill, or going after a dream. Whatever it is—take one small step today.
-At the end of the day, fear of failure never fully goes away. Even the most successful people still feel it. The difference is, they don’t let it stop them.
-So ask yourself—what’s worse? Failing and learning from it? Or never trying at all and staying exactly where you are?
-You don’t need to be perfect. You don’t need to have everything figured out. You just need to take action. Even if it’s messy. Even if it’s uncomfortable. Even if you’re scared.
-Failure is a part of growth. It's not about the big, perfect successes—it’s about the small steps, the consistent effort. Don’t focus on perfection; focus on persistence.
+  <!-- Sidebar toggle setup -->
+  <input type="checkbox" id="toggler">
+  <label for="toggler" class="toggle-button">☰</label>
 
-</p>
-</header>
+  <!-- Sidebar content -->
+  <aside>
+    <div class="logo-text">Brody Edward</div>
+    <a href="articles.html" style="text-decoration: underline;">Visit Articles</a>
+  </aside>
 
+  <!-- Main Content -->
+  <header>
+    <h1>Conquering the Fear of Failure: A Journey from Doubt to Action</h1>
+    <p>Did you know that the fear of failure is one of the most common reasons people avoid pursuing their goals? In fact, roughly 31% of adults admit that this fear has held them back from reaching their full potential.</p>
+  </header>
 
-<section class="section">
-  <h2>Connect</h2>
-  <p>
-    Want to collaborate, learn more, or just talk tech and philosophy?
-  </p>
-  <p>Reach out via this email: 
-    <a href="mailto:BrodyGilesmail@gmail.com" id="emailLink" onclick="copyEmail(event)">BrodyGilesmail@gmail.com</a>
-  </p>
+  <section class="section">
+    <h2>My Struggles with Fear</h2>
+    <p>
+      As a creative person, I’ve struggled with this fear myself. It’s something I’ve faced over and over again. Whether I’m sharing my work or simply creating, there’s always a voice in the back of my mind that makes me doubt myself.
+    </p>
+    <p>
+      Overcoming these challenges isn’t easy, but it’s possible. For me, much of this fear comes from my OCD and imposter syndrome. I can remember countless times when I gave up on projects because of this overwhelming fear of failure. I convinced myself that nothing I created was good enough.
+    </p>
+  </section>
 
-  <script>
-    function copyEmail(event) {
-      event.preventDefault();
-      const email = event.target.textContent;
-      const tempInput = document.createElement('input');
-      tempInput.value = email;
-      document.body.appendChild(tempInput);
-      tempInput.select();
-      document.execCommand('copy');
-      document.body.removeChild(tempInput);
-      alert('Email copied to clipboard!');
-    }
-  </script>
+  <section class="section">
+    <h2>Understanding Fear</h2>
+    <p>
+      Before we dive into how to overcome fear, we need to understand what’s happening in our brains. Fear, and especially the fear of failure, is deeply embedded in our brain’s response system. When we perceive a threat, our amygdala triggers the hypothalamus, which increases our heart rate and causes us to sweat. This physical reaction is overwhelming and can make overcoming fear feel impossible.
+    </p>
+    <p>
+      However, our brains can also trick us. In situations like the fear of failure, the prefrontal cortex—the part of the brain responsible for rational thought—tries to assess the situation. But when fear becomes overwhelming, like with imposter syndrome, it can be hard to stop the emotional response from the amygdala. This makes overcoming fear especially challenging.
+    </p>
+  </section>
 
-  <p>↑Click the email to copy↑</p>
-</section>
+  <section class="section">
+    <h2>Overcoming Fear</h2>
+    <p>
+      To get over your fear of failure, you need to accept that fear is a necessity of life. Fear is natural—it’s a part of being human. But you must recognize it and challenge it.
+    </p>
+    <p>
+      One of the main challenges of fear is understanding what makes us fear what we fear. A lot of the time, we don’t fear failure itself—we fear what failure represents. We fear embarrassment, rejection, or proving to ourselves that we aren’t good enough. But what if we flipped that mindset?
+    </p>
+  </section>
+
+  <section class="section">
+    <h2>Real-Life Examples</h2>
+    <p>
+      Think of people like Elon Musk and Steve Jobs. Musk nearly had his companies go bankrupt—multiple times—before he became the richest person in the world. There was a point when Tesla was on the verge of collapse, and SpaceX had failed three rocket launches in a row. But he didn’t stop.
+    </p>
+    <p>
+      Then there’s Steve Jobs. He was fired from his own company—Apple—after internal conflicts with the board. Imagine that: getting kicked out of the company you built from the ground up. But instead of giving up, he created a new company, Next, which Apple later acquired. Jobs returned as CEO and turned Apple into the tech giant we know today.
+    </p>
+  </section>
+
+  <section class="section">
+    <h2>What You Can Learn</h2>
+    <p>
+      Failure is not proof that you are not good enough; it is just proof that you are tired. If you never fail, that means you never push yourself enough. Start thinking, “What did I learn from this?”
+    </p>
+    <p>
+      You must focus on progress, not perfectionism. Perfectionism is one of the main reasons people stop as soon as they fail at something. You do not need to be perfect; you need to be persistent.
+    </p>
+  </section>
+
+  <section class="section">
+    <h2>Connect</h2>
+    <p>Want to collaborate, learn more, or just talk tech and philosophy?</p>
+    <p>
+      Reach out via this email: 
+      <a href="mailto:BrodyGilesmail@gmail.com" id="emailLink" onclick="copyEmail(event)">BrodyGilesmail@gmail.com</a>
+    </p>
+    <p>↑ Click the email to copy ↑</p>
+
+    <script>
+      function copyEmail(event) {
+        event.preventDefault();
+        const email = event.target.textContent;
+        const tempInput = document.createElement('input');
+        tempInput.value = email;
+        document.body.appendChild(tempInput);
+        tempInput.select();
+        document.execCommand('copy');
+        document.body.removeChild(tempInput);
+        alert('Email copied to clipboard!');
+      }
+    </script>
+  </section>
 
 </body>
 </html>
