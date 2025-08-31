@@ -23,16 +23,24 @@
       100% { transform: translateY(0); }
     }
 
+    /* Header with background image */
     header {
+      position: relative;
       background-color: #1a1a1a;
-      padding: 2rem;
+      padding: 6rem 2rem 4rem 2rem; /* extra top padding to show image */
       text-align: center;
+      background-image: url('your-image.jpg'); /* Replace with your image */
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
     }
 
     h1 {
       margin: 0;
       font-size: 2.5rem;
       color: #8a2be2;
+      position: relative;
+      z-index: 1;
     }
 
     h2 {
@@ -47,6 +55,17 @@
       line-height: 1.6;
       color: #ccc;
       text-align: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Overlay to make text readable on image */
+    header::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0,0,0,0.5);
+      z-index: 0;
     }
 
     /* Sidebar toggle button */
@@ -179,11 +198,6 @@
       </li>
     </ul>
   </section>
-  
-  
-  
-  
-  
 
   <section class="section">
     <h2>Connect</h2>
