@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Brody Edward | Portfolio</title>
+  <link rel="icon" href="icon.ico" type="image/x-icon">
+  <!-- External CSS -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav>
+    <div class="logo">Brody Edward</div>
+    <div>
+      <a href="#about">About</a>
+      <a href="#articles">Articles</a>
+      <a href="#books">Books</a>
+      <a href="#connect">Connect</a>
+      <a href="store.html">Store</a> <!-- placeholder -->
+    </div>
+  </nav>
+
+  <!-- Header -->
+  <header>
+    <h1>Brody Edward</h1>
+    <p>Hacker • Writer • Explorer of the Cosmos • Founder of 
+      <strong style="font-size: 25px; color: #59157D;">CodeScribe</strong>
+    </p>
+    
+  </header>
+
+  <!-- About -->
+  <section class="section" id="about">
+  
+    <p>
+      I'm a 17-year-old with a passion for computers, cybersecurity, and storytelling. 
+      I enjoy exploit development, reverse engineering, and malware analysis. 
+      I also build tools—from FPS boosters to password analyzers—designed for performance and insight.
+    </p>
+    <p>
+      When I am not programming, writing, or studying, I read books. 
+      Currently I am reading <em>"Astrophysics for People in a Hurry"</em> by Neil DeGrasse Tyson 
+      and <em>The Iliad</em> by Homer.
+    </p>
+  </section>
+
+  <!-- Articles -->
+  <section class="section" id="articles">
+    <h2>Read My Articles</h2>
+    <p>Check out my latest writings on tech, philosophy, and exploration.</p>
+    <a href="articles.html">→ Visit Articles</a>
+  </section>
+
+  <!-- Books -->
+  <section class="section" id="books">
+    <h2>Currently Reading & Suggested Books</h2>
+    <div class="book-list">
+      <div class="book">
+        <a href="https://www.goodreads.com/book/show/32191710-astrophysics-for-people-in-a-hurry" target="_blank">
+          Astrophysics for People in a Hurry
+        </a>
+        <span>by Neil deGrasse Tyson</span>
+      </div>
+
+      <div class="book">
+        <a href="https://www.goodreads.com/book/show/59365876-odyssey-and-the-iliad" target="_blank">
+          Odyssey and the Iliad
+        </a>
+        <span>by Homer</span>
+      </div>
+
+      <div class="book">
+        <a href="https://www.goodreads.com/book/show/58763686-haunting-adeline" target="_blank">
+          Haunting Adeline
+        </a>
+        <span>by H.D. Carlton</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Connect -->
+  <footer id="connect">
+    <h2 style="color: var(--accent);">Connect</h2>
+    <p>Want to collaborate, learn more, or just talk tech and philosophy?</p>
+    <p>
+      Email me: 
+      <a href="mailto:BrodyGilesmail@gmail.com" id="emailLink" onclick="copyEmail(event)">
+        BrodyGilesmail@gmail.com
+      </a>
+    </p>
+    <p>↑ Click the email to copy ↑</p>
+    <p>Consider following me on social media for updates!</p>
+  </footer>
+
+  <script>
+    function copyEmail(event) {
+      event.preventDefault();
+      const email = event.target.textContent;
+      navigator.clipboard.writeText(email).then(() => {
+        alert('Email copied to clipboard!');
+      });
+    }
+  
+  </script>
+<script src="script.js"></script>
+</body>
+</html>

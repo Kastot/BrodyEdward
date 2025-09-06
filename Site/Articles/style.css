@@ -1,0 +1,127 @@
+:root {
+  --bg: #0f0f0f;
+  --card: #1a1a1a;
+  --text: #e0e0e0;
+  --muted: #aaa;
+  --accent: #8a2be2;
+}
+
+/* Base styles */
+body {
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(180deg, var(--bg), var(--card) 60%, var(--card));
+  color: var(--text);
+  font-family: "Fira Code", monospace;
+  line-height: 1.8;
+
+  opacity: 0;
+  transition: opacity 0.8s ease;
+}
+body.loaded {
+  opacity: 1;
+}
+
+/* Top navigation (same style as Home) */
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background: #111;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+nav .logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--accent);
+}
+nav a {
+  margin-left: 1.5rem;
+  color: var(--text);
+  text-decoration: none;
+  transition: color 0.3s;
+}
+nav a:hover {
+  color: var(--accent);
+}
+
+/* Article container */
+.article-container {
+  max-width: 800px;
+  margin: 3rem auto;
+  padding: 2rem;
+  background: rgba(20, 20, 20, 0.8);
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.6);
+}
+
+/* Titles */
+.article-container h1 {
+  font-size: 2.5rem;
+  color: var(--accent);
+  margin-bottom: 1.5rem;
+}
+.article-container h2 {
+  font-size: 1.8rem;
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+  color: var(--accent);
+}
+.article-container h3 {
+  font-size: 1.4rem;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  color: var(--text);
+}
+
+/* Paragraphs */
+.article-container p {
+  margin-bottom: 1.5rem;
+  font-size: 1.1rem;
+  color: var(--text);
+}
+
+/* Blockquotes */
+.article-container blockquote {
+  border-left: 4px solid var(--accent);
+  padding-left: 1rem;
+  margin: 2rem 0;
+  font-style: italic;
+  color: var(--muted);
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 3rem 1.5rem;
+  background: linear-gradient(180deg, var(--card), var(--bg));
+  color: var(--muted);
+}
+footer a {
+  color: var(--accent);
+  text-decoration: none;
+}
+footer a:hover {
+  text-decoration: underline;
+}
+
+/* Light mode */
+body.light-mode {
+  --bg: #fdfdfd;
+  --card: #f5f5f5;
+  --text: #111;
+  --muted: #555;
+  --accent: #8a2be2;
+  background: linear-gradient(180deg, var(--bg), var(--card) 60%, var(--card));
+  color: var(--text);
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  nav { flex-direction: column; gap: 0.5rem; }
+  .article-container { padding: 1.2rem; margin: 1.5rem; }
+  .article-container h1 { font-size: 2rem; }
+}
