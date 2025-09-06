@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="icon" href="icon.ico" type="image/x-icon">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CodeScribe - Articles</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav>
+    <div class="logo">Brody Edward</div>
+    <div>
+      <a href="#about">About</a>
+      <a href="#articles">Articles</a>
+      <a href="#books">Books</a>
+      <a href="#connect">Connect</a>
+      <a href="store.html">Store</a> <!-- placeholder -->
+    </div>
+  </nav>
+
+<section class="section">
+  <h2>Articles</h2>
+  <div class="article-list">
+    <ul>
+      <li>
+        <a href="Fear.html">Conquering the Fear of Failure: A Journey from Doubt to Action</a>
+      </li>
+      <li>
+        <a href="love.html">Love: The Indivisible Truth of Singular Devotion</a>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<section class="section" id="connect">
+  <h2>Connect</h2>
+  <p>Want to collaborate, learn more, or just talk tech and philosophy?</p>
+  <p>
+    Email me: 
+    <a href="mailto:BrodyGilesmail@gmail.com" id="emailLink" onclick="copyEmail(event)">
+      BrodyGilesmail@gmail.com
+    </a>
+  </p>
+  <p>↑ Click the email to copy ↑</p>
+</section>
+
+<script>
+  // Copy email
+  function copyEmail(event) {
+    event.preventDefault();
+    const email = event.target.textContent;
+    navigator.clipboard.writeText(email).then(() => {
+      alert('Email copied to clipboard!');
+    });
+  }
+
+  // Background fade-in
+  window.addEventListener("load", () => {
+    document.body.classList.add("loaded");
+  });
+
+  // Section fade-in on scroll
+  const sections = document.querySelectorAll(".section");
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("fade-in");
+      }
+    });
+  }, { threshold: 0.2 });
+
+  sections.forEach(section => observer.observe(section));
+</script>
+
+</body>
+</html>
