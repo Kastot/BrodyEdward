@@ -14,7 +14,7 @@ body {
   color: var(--text);
   font-family: "Fira Code", monospace;
   line-height: 1.7;
-
+  background: Images/IMG_20250814_194119629.jpg:
   /* Background fade-in */
   opacity: 0;
   transition: opacity 0.8s ease;
@@ -197,4 +197,5 @@ header * { position: relative; z-index: 1; }
   z-index: 1;
   background: transparent;
 }
+
 
