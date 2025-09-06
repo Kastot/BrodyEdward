@@ -170,7 +170,7 @@ body.light-mode {
 
 /* ---- Hotfix: ensure readable text on dark bg ---- */
 html, body {
-  background-color: #141414;   /* your new bg */
+  background: Images/IMG_20250814_194119629.jpg   /* your new bg */
   color: #eaeaea;               /* force light text */
   color-scheme: dark;
 }
@@ -197,3 +197,4 @@ header * { position: relative; z-index: 1; }
   z-index: 1;
   background: transparent;
 }
+
