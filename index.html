@@ -1,68 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <link rel="icon" href="icon.ico" type="image/x-icon">
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>CodeScribe</title>
+  <link rel="icon" href="icon.ico" type="image/x-icon">
   <style>
     body {
+      margin: 0;
+      padding: 0;
       background-color: #0f0f0f;
       color: #e0e0e0;
       font-family: "Fira Code", monospace;
-      margin: 0;
-      padding: 0;
+      line-height: 1.6;
       overflow-x: hidden;
     }
 
-
-
-    /* Header with background image */
+    /* Header with background image + overlay */
     header {
       position: relative;
-      background-color: #1a1a1a;
-      padding: 6rem 2rem 4rem 2rem; 
       text-align: center;
-      background-image: url('510250861_703636885757882_8699385042398370182_n.jpg'); 
-      background-size: cover;
-      background-repeat: no-repeat;
-      background-position: center;
+      padding: 6rem 2rem 4rem;
+      background: url('510250861_703636885757882_8699385042398370182_n.jpg') center/cover no-repeat;
+      color: #fff;
     }
-
-    h1 {
-      margin: 0;
-      font-size: 2.5rem;
-      color: #8a2be2;
-      position: relative;
-      z-index: 1;
-    }
-
-    h2 {
-      text-align: center;
-      color: #8a2be2;
-    }
-
-    p {
-      font-size: 1.2rem;
-      max-width: 800px;
-      margin: 1rem auto;
-      line-height: 1.6;
-      color: #ccc;
-      text-align: center;
-      position: relative;
-      z-index: 1;
-    }
-
-    /* Overlay to make text readable on image */
     header::before {
-      content: '';
+      content: "";
       position: absolute;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background: rgba(0,0,0,0.5);
+      inset: 0;
+      background: rgba(0,0,0,0.6);
       z-index: 0;
     }
+    header h1,
+    header p {
+      position: relative;
+      z-index: 1;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2.8rem;
+      color: #8a2be2;
+    }
+    header p {
+      font-size: 1.3rem;
+      max-width: 700px;
+      margin: 1rem auto 0;
+      color: #ddd;
+    }
 
-    /* Sidebar toggle button */
+    /* Sidebar toggle */
+    #toggler { display: none; }
     .toggle-button {
       position: fixed;
       top: 1rem;
@@ -71,69 +58,99 @@
       cursor: pointer;
       color: #8a2be2;
       z-index: 1001;
-      background: #0f0f0f;
-      padding: 0.3rem 0.6rem;
-      border-radius: 5px;
+      background: #1a1a1a;
+      padding: 0.4rem 0.8rem;
+      border-radius: 6px;
+      transition: background 0.3s;
     }
-
-    #toggler {
-      display: none;
+    .toggle-button:hover {
+      background: #2a2a2a;
     }
-
     aside {
       position: fixed;
       top: 0;
       left: 0;
       height: 100%;
       width: 240px;
-      background-color: #1a1a1a;
+      background: #1a1a1a;
       transform: translateX(-100%);
       transition: transform 0.3s ease;
       z-index: 1000;
       padding-top: 4rem;
-      padding-left: 1rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
-
     #toggler:checked + label + aside {
       transform: translateX(0);
     }
-
     .logo-text {
       font-size: 1.8rem;
       color: #8a2be2;
-      text-align: center;
       margin-bottom: 2rem;
     }
-
-    a {
-      color: #8a2be2;
+    aside a {
+      color: #ccc;
+      margin: 0.8rem 0;
       text-decoration: none;
-      display: block;
-      margin: 1rem;
+      transition: color 0.3s;
+    }
+    aside a:hover {
+      color: #8a2be2;
+    }
+
+    /* Section styling */
+    .section {
+      padding: 3rem 1.5rem;
+      max-width: 900px;
+      margin: auto;
       text-align: center;
     }
-
-    a:hover {
-      text-decoration: underline;
+    .section h2 {
+      color: #8a2be2;
+      margin-bottom: 1rem;
+    }
+    .section p {
+      color: #ccc;
+      margin-bottom: 1.2rem;
     }
 
-    .section {
-      padding: 2rem;
-    }
-
-    .book-list {
-      max-width: 600px;
-      margin: 0 auto;
-    }
-
+    /* Book list */
     .book-list ul {
       list-style: none;
       padding: 0;
     }
-
     .book-list li {
       margin: 1rem 0;
       font-size: 1.1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .book-list a {
+      color: #8a2be2;
+      font-weight: bold;
+      text-decoration: none;
+    }
+    .book-list a:hover {
+      text-decoration: underline;
+    }
+
+    /* Links */
+    a {
+      color: #8a2be2;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+
+    /* Mobile adjustments */
+    @media (max-width: 600px) {
+      header h1 { font-size: 2.2rem; }
+      header p { font-size: 1.1rem; }
+      .section { padding: 2rem 1rem; }
     }
   </style>
 </head>
@@ -146,7 +163,7 @@
   <!-- Sidebar content -->
   <aside>
     <div class="logo-text">Brody Edward</div>
-    <a href="articles.html" style="text-decoration: underline;">Visit Articles</a>
+    <a href="articles.html">Visit Articles</a>
   </aside>
 
   <!-- Main Content -->
@@ -158,35 +175,35 @@
   <section class="section">
     <h2>Read My Articles</h2>
     <p>Check out my latest articles on a variety of topics.</p>
-    <a href="articles">Visit Articles</a>
+    <a href="articles.html">Visit Articles</a>
   </section>
 
   <section class="section">
     <h2>About Me</h2>
     <p>
       I'm a 16-year-old with a passion for computers, cybersecurity, and storytelling. 
-      I enjoy exploit development, reverse engineering, and malware analysis. I also build tools—from FPS boosters to password analyzers—designed for performance and insight.
+      I enjoy exploit development, reverse engineering, and malware analysis. 
+      I also build tools—from FPS boosters to password analyzers—designed for performance and insight.
     </p>
     <p>
-      When I am not programming, writing, or studying, I read books. Currently I am reading the book, 
-      <em>"Astrophysics for People in a Hurry"</em> by Neil DeGrasse Tyson and <em>The Iliad</em> by Homer.
+      When I am not programming, writing, or studying, I read books. 
+      Currently I am reading <em>"Astrophysics for People in a Hurry"</em> by Neil DeGrasse Tyson 
+      and <em>The Iliad</em> by Homer.
     </p>
   </section>
 
-  <section class="section">
-    <h2 style="text-align: center;">Currently Reading & Suggested Books</h2>
-    <ul style="list-style: none; padding-left: 0; display: flex; flex-direction: column; align-items: center;">
-      <li style="margin-bottom: 1rem; display: flex; align-items: center; justify-content: center;">
-        <span style="margin-right: 1rem;">•</span>
-        <a href="https://www.goodreads.com/book/show/32191710-astrophysics-for-people-in-a-hurry" target="_blank" style="color: #8a2be2; text-decoration: none; margin-right: 1rem;">
-          <strong>Astrophysics for People in a Hurry</strong>
+  <section class="section book-list">
+    <h2>Currently Reading & Suggested Books</h2>
+    <ul>
+      <li>
+        <a href="https://www.goodreads.com/book/show/32191710-astrophysics-for-people-in-a-hurry" target="_blank">
+          Astrophysics for People in a Hurry
         </a>
         <span style="color: #aaa;">by Neil deGrasse Tyson</span>
       </li>
-      <li style="margin-bottom: 1rem; display: flex; align-items: center; justify-content: center;">
-        <span style="margin-right: 1rem;">•</span>
-        <a href="https://www.goodreads.com/book/show/59365876-odyssey-and-the-iliad" target="_blank" style="color: #8a2be2; text-decoration: none; margin-right: 1rem;">
-          <strong>Odyssey and the Iliad</strong>
+      <li>
+        <a href="https://www.goodreads.com/book/show/59365876-odyssey-and-the-iliad" target="_blank">
+          Odyssey and the Iliad
         </a>
         <span style="color: #aaa;">by Homer</span>
       </li>
@@ -201,24 +218,17 @@
       <a href="mailto:BrodyGilesmail@gmail.com" id="emailLink" onclick="copyEmail(event)">BrodyGilesmail@gmail.com</a>
     </p>
     <p>↑ Click the email to copy ↑</p>
-
-    <script>
-      function copyEmail(event) {
-        event.preventDefault();
-        const email = event.target.textContent;
-        const tempInput = document.createElement('input');
-        tempInput.value = email;
-        document.body.appendChild(tempInput);
-        tempInput.select();
-        document.execCommand('copy');
-        document.body.removeChild(tempInput);
-        alert('Email copied to clipboard!');
-      }
-    </script>
   </section>
+
+  <script>
+    function copyEmail(event) {
+      event.preventDefault();
+      const email = event.target.textContent;
+      navigator.clipboard.writeText(email).then(() => {
+        alert('Email copied to clipboard!');
+      });
+    }
+  </script>
 
 </body>
 </html>
-
-
-
