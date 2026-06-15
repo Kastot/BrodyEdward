@@ -7,8 +7,22 @@
   <link rel="stylesheet" href="style.css" />
   <link rel="icon" href="icon.ico" type="image/x-icon" />
   
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/MathJax.js?config=TeX-mml-chtml"></script>
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['\\(', '\\)']],
+        displayMath: [['$$', '$$']],
+        processEscapes: true
+      },
+      options: {
+        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+      }
+    };
+  </script>
+
+  <script type="text/javascript" id="MathJax-script" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
 </head>
 <body>
 
@@ -46,7 +60,7 @@
 
     <h2>2. Kinetic Application: Resolving the Static-Dynamic Paradox</h2>
     <p>
-      In classical mechanics, calculating the instantaneous state of a moving object—such as a skateboarder on a curved ramp—presents a philosophical and physical paradox. While calculus resolves this via the limit process over an approaching time interval (\(\Delta t \to 0\)), evaluating a particle at an <em>infinitely isolated, frozen temporal coordinate</em> (\(t_0\)) introduces a contradiction: physical displacement requires a change in time (\(\Delta t > 0\)), meaning at a completely frozen snapshot, the localized displacement is zero, yet the kinetic momentum is non-zero.
+      In classical mechanics, calculating the instantaneous state of a moving object—such as a skateboarder on a curved ramp—presents a philosophical and physical paradox. While calculus resolves this via the limit process over an approaching time interval (\(\Delta t \to 0\")), evaluating a particle at an <em>infinitely isolated, frozen temporal coordinate</em> (\(t_0\)) introduces a contradiction: physical displacement requires a change in time (\(\Delta t > 0\")), meaning at a completely frozen snapshot, the localized displacement is zero, yet the kinetic momentum is non-zero.
     </p>
     <p>
       The \(\emptyset_1\) framework models this exact coordinate boundary not as an interval limit, but as a dual-component <strong>Kinetic State Vector</strong> (\(\mathbf{\Psi}_k\)). If the continuous kinetic trajectory projects a magnitude of \(9\text{ mph}\) at the targeted boundary coordinate, the operator evaluates the frozen snapshot directly:
