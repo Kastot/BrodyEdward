@@ -1,108 +1,219 @@
 <!DOCTYPE html>
+
 <html lang="en">
+
 <head>
+
   <meta charset="UTF-8"/>
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
   <title>Null-One</title>
+
   <link rel="icon" href="icon.ico" type="image/x-icon">
+
+  <!-- External CSS -->
+
   <link rel="stylesheet" href="style.css">
+
 </head>
+
 <body>
 
+
+
+  <!-- Navbar -->
+
   <nav>
-    <div class="logo">
-      <a href="index.html">
-        <img src="https://github.com/Kastot/BrodyEdward/blob/main/Images/bitmap.svg" alt="Null-One Logo" class="title-logo" style="height: 40px; vertical-align: middle;">
-      </a>
-    </div>
+
+    <div class="logo"><a href="index.html">Null-One</a></div>
+
     <div>
+
       <a href="#about">About</a>
+
       <a href="#articles">Articles</a>
+
       <a href="#books">Books</a>
+
       <a href="#connect">Connect</a>
-      <a href="store.html">Store</a> </div>
+
+      <a href="store.html">Store</a> <!-- placeholder -->
+
+    </div>
+
   </nav>
 
+
+
+  <!-- Header -->
+
   <header>
-    <h1>
-      <img src="images/bitmap.svg" alt="Null-One" class="main-title-logo" style="height: 120px; max-width: 100%;">
-    </h1>
+
+    <h1>Null-One</h1>
+
     <p>Hacker • Writer • Explorer of the Cosmos • Founder of 
+
       <strong style="font-size: 25px; color: #59157D;">CodeScribe</strong>
+
     </p>
+
     
+
   </header>
 
+
+
+  <!-- About -->
+
   <section class="section" id="about">
+
   
+
     <p>
+
       I'm a 17-year-old with a passion for computers, cybersecurity, and storytelling. 
+
       I enjoy exploit development, general computer development, reverse engineering, web development, programming for fun, writing, ethical-hacking, and much—much more.
+
       I am also working on an encyrption algorithm called, "Krypto" which is still in development.
+
       Alongside the encryption algorithm, I am working on a simple ai assistant that can help with basic tasks and finding infomraiontion.
+
     </p>
+
     <p>
+
       When I am not programming, writing, or studying, I read books. 
+
       I've been reading since I was very young, and I love to absorb new ideas and perspectives through others' writing.
+
       I read every genre of book, but I especially enjoy science fiction, fantasy, and philosophy. Reading is a way I feel more comfortable throughout the week, it helps me focus on facts and knowledge.
+
     </p>
+
   </section>
+
+
+
+  <!-- Articles -->
 
   <section class="section" id="articles">
+
     <h2>Read My Articles</h2>
+
     <p>Check out my latest writings on tech, philosophy, and exploration.</p>
+
     <a href="articles.html">→ Visit Articles</a>
+
   </section>
+
+
+
+  <!-- Books -->
 
   <section class="section" id="books">
+
     <h2>Currently Reading & Suggested Books</h2>
+
     <div class="book-list">
+
       <div class="book">
+
         <a href="https://www.goodreads.com/book/show/32191710-astrophysics-for-people-in-a-hurry" target="_blank">
+
           Astrophysics for People in a Hurry
+
         </a>
+
         <span>by Neil deGrasse Tyson</span>
+
       </div>
 
+
+
       <div class="book">
+
         <a href="https://www.goodreads.com/book/show/59365876-odyssey-and-the-iliad" target="_blank">
+
           Odyssey and the Iliad
+
         </a>
+
         <span>by Homer</span>
+
       </div>
 
+
+
       <div class="book">
+
         <a href="https://www.goodreads.com/book/show/58763686-haunting-adeline" target="_blank">
+
           Haunting Adeline
+
         </a>
+
         <span>by H.D. Carlton</span>
+
       </div>
+
     </div>
+
   </section>
 
+
+
+  <!-- Connect -->
+
   <footer id="connect">
+
     <h2 style="color: var(--accent);">Connect</h2>
+
     <p>Want to collaborate, learn more, or just talk tech and philosophy?</p>
+
     <p>
+
       Email me: 
+
       <a href="mailto:brodyedwardmail@gmail.com" id="emailLink" onclick="copyEmail(event)">
+
         BrodyEdwardMail@gmail.com
+
       </a>
+
     </p>
+
     <p>↑ Click the email to copy ↑</p>
+
     <p>Consider following me on social media for updates!</p>
+
   </footer>
 
+
+
   <script>
+
     function copyEmail(event) {
+
       event.preventDefault();
+
       const email = event.target.textContent;
+
       navigator.clipboard.writeText(email).then(() => {
+
         alert('Email copied to clipboard!');
+
       });
+
     }
+
   
+
   </script>
+
 <script src="script.js"></script>
+
 </body>
-</html>
+
+</html> 
