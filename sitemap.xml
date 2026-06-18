@@ -2,8 +2,22 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
    <url>
       <loc>https://nullone.org/</loc>
-      <lastmod>2026-06-15</lastmod>
-      <changefreq>monthly</changefreq>
-      <priority>1.0</priority>
+      <lastmod>2026-06-16</lastmod>
+   </url>
+   <url>
+      <loc>https://nullone.org/articles.html</loc>
+      <lastmod>2026-06-16</lastmod>
+   </url>
+   <url>
+      <loc>https://nullone.org/Articles/Fear.html</loc>
+      <lastmod>2025-09-18</lastmod>
+   </url>
+   <url>
+      <loc>https://nullone.org/Articles/love.html</loc>
+      <lastmod>2025-09-18</lastmod>
+   </url>
+   <url>
+      <loc>https://nullone.org/Articles/null-one-operator.html</loc>
+      <lastmod>2026-06-16</lastmod>
    </url>
 </urlset>
