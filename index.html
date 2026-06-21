@@ -1,7 +1,5 @@
 <!DOCTYPE html>
-
 <html lang="en">
-
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -9,209 +7,149 @@
   <title>Null-One | Philosophy, Programming &amp; Mathematics</title>
   
   <meta name="description" content="Explore deep-dives and insights on philosophy, programming, mathematics, and theoretical logic at Null-One."/>
-
   <meta name="keywords" content="Null-One, NullOne, philosophy, programming, mathematics, theoretical math, Kastot"/>
 
   <link rel="icon" href="Nullcon.ico" type="image/x-icon">
   <link rel="icon" href="Nullcon.ico">
-
   <link rel="stylesheet" href="style.css">
 </head>
 
-
 <body>
 
-
-
-  <!-- Navbar -->
-
   <nav>
-
     <div class="logo"><a href="index.html">Null-One</a></div>
-
     <div>
-
       <a href="#about">About</a>
-
       <a href="#articles">Articles</a>
-
       <a href="#books">Books</a>
-
       <a href="#connect">Connect</a>
-
-      <a href="store.html">Store</a> <!-- placeholder -->
-
-    </div>
-
+      <a href="store.html">Store</a> </div>
   </nav>
 
-
-
-  <!-- Header -->
-
   <header>
-
     <h1>Null-One</h1>
-
     <p>Hacker • Writer • Explorer of the Cosmos • Founder of 
-
       <strong style="font-size: 25px; color: #59157D;">CodeScribe</strong>
-
     </p>
-
-    
-
   </header>
 
-
-
-  <!-- About -->
-
   <section class="section" id="about">
-
-  
-
     <p>
-
-      I'm an autodidact with a passion for creaton, theory, and mathematics.
-
-      I study advnaced mathematics, theoretical physics (To some degree), psychology, ethical hacking, programming, and I have fallen in love with encryption.
-
-      I am also working on an encyrption algorithm called, "Krypto" which is still in development.
-
+      I'm an autodidact with a passion for creation, theory, and mathematics.
+      I study advanced mathematics, theoretical physics (To some degree), psychology, ethical hacking, programming, and I have fallen in love with encryption.
+      I am also working on an encryption algorithm called, "Krypto" which is still in development.
     </p>
-
     <p>
-
-    Other than my love for studies, I love reading and working on my own theories based in mathematics (Kind of studying, but this I do more for fun, as it is just hypothetical). 
-    My active theory (Null-One) was an independant creation of vector mathematics. Prior to understand or knowing about vectors in linear algebra, I had a theory where a bit or variable could hold
-    more than one piece of data at the same time, specifically the variable and 0, hence why it's called Null-One. I was excited to figure something out even though it was extremely similar to
-    something already known and used in real world mathematics. Though Null-One isn't a breakthrough or even useful, I am very proud to say I thought of something like it.
-    
+      Other than my love for studies, I love reading and working on my own theories based in mathematics (Kind of studying, but this I do more for fun, as it is just hypothetical). 
+      My active theory (Null-One) was an independent creation of vector mathematics. Prior to understanding or knowing about vectors in linear algebra, I had a theory where a bit or variable could hold
+      more than one piece of data at the same time, specifically the variable and 0, hence why it's called Null-One. I was excited to figure something out even though it was extremely similar to
+      something already known and used in real world mathematics. Though Null-One isn't a breakthrough or even useful, I am very proud to say I thought of something like it.
     </p>
-
   </section>
-
-
-
-  <!-- Articles -->
 
   <section class="section" id="articles">
-
     <h2>Read My Articles</h2>
-
     <p>Check out my latest writings on tech, philosophy, and exploration.</p>
-
     <a href="articles">→ Visit Articles</a>
-
   </section>
-
-
-
-  <!-- Books -->
 
   <section class="section" id="books">
-
     <h2>Currently Reading & Suggested Books</h2>
-
     <div class="book-list">
-
       <div class="book">
-
         <a href="https://www.goodreads.com/book/show/32191710-astrophysics-for-people-in-a-hurry" target="_blank">
-
           Astrophysics for People in a Hurry
-
         </a>
-
         <span>by Neil deGrasse Tyson</span>
-
       </div>
 
-
-
       <div class="book">
-
         <a href="https://www.goodreads.com/book/show/59365876-odyssey-and-the-iliad" target="_blank">
-
           Odyssey and the Iliad
-
         </a>
-
         <span>by Homer</span>
-
       </div>
-
-
 
       <div class="book">
-
         <a href="https://www.goodreads.com/book/show/58763686-haunting-adeline" target="_blank">
-
           Haunting Adeline
-
         </a>
-
         <span>by H.D. Carlton</span>
-
       </div>
-
     </div>
-
   </section>
 
-
-
-  <!-- Connect -->
-
   <footer id="connect">
-
     <h2 style="color: var(--accent);">Connect</h2>
-
     <p>Want to collaborate, learn more, or just talk tech and philosophy?</p>
-
     <p>
-
       Email me: 
-
       <a href="mailto:brodyedwardmail@gmail.com" id="emailLink" onclick="copyEmail(event)">
-
         BrodyEdwardMail@gmail.com
-
       </a>
-
     </p>
-
     <p>↑ Click the email to copy ↑</p>
-
     <p>Consider following me on social media for updates!</p>
-
   </footer>
 
-
-
   <script>
-
+    // Existing Email Copy Function
     function copyEmail(event) {
-
       event.preventDefault();
-
-      const email = event.target.textContent;
-
+      const email = event.target.textContent.trim();
       navigator.clipboard.writeText(email).then(() => {
-
         alert('Email copied to clipboard!');
-
       });
-
     }
 
-  
-
+    // New WebMCP Integration for AI Agent Discovery
+    if (navigator.modelContext && typeof navigator.modelContext.provideContext === 'function') {
+      navigator.modelContext.provideContext({
+        tools: [
+          {
+            name: "get_site_overview",
+            description: "Get an overview of Null-One, including interests in encryption (Krypto algorithm) and vector mathematics.",
+            inputSchema: { type: "object", properties: {} },
+            execute: async () => {
+              return {
+                content: [{
+                  type: "text",
+                  text: "Null-One is an independent developer studying advanced math, theoretical physics, and developing an encryption algorithm called 'Krypto'. Active mathematical theory centers on vector concepts where a variable holds multiple data states simultaneously."
+                }]
+              };
+            }
+          },
+          {
+            name: "get_reading_list",
+            description: "Retrieve the current book recommendations and reading list from Null-One.",
+            inputSchema: { type: "object", properties: {} },
+            execute: async () => {
+              return {
+                content: [{
+                  type: "text",
+                  text: "Current reading list: 1. 'Astrophysics for People in a Hurry' by Neil deGrasse Tyson, 2. 'Odyssey and the Iliad' by Homer, 3. 'Haunting Adeline' by H.D. Carlton."
+                }]
+              };
+            }
+          },
+          {
+            name: "get_contact_info",
+            description: "Get the contact email address for collaboration or tech discussions.",
+            inputSchema: { type: "object", properties: {} },
+            execute: async () => {
+              return {
+                content: [{
+                  type: "text",
+                  text: "Email address: brodyedwardmail@gmail.com"
+                }]
+              };
+            }
+          }
+        ]
+      });
+    }
   </script>
 
-<script src="script.js"></script>
-
+  <script src="script.js"></script>
 </body>
-
-</html> 
+</html>
