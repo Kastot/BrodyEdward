@@ -1,1 +1,18 @@
 
+{
+  "$schema": "https://agentskills.io/v0.2.0/schema.json",
+  "skills": [
+    {
+      "name": "webmcp",
+      "type": "browser-api",
+      "description": "Exposes site overview, contact details, and reading list to browser-based agents via WebMCP.",
+      "url": "https://isitagentready.com/.well-known/agent-skills/webmcp/SKILL.md"
+    },
+    {
+      "name": "link-headers",
+      "type": "http-header",
+      "description": "Discovers API catalogs and documentation via Link discovery headers.",
+      "url": "https://isitagentready.com/.well-known/agent-skills/link-headers/SKILL.md"
+    }
+  ]
+}
