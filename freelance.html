@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <title>Freelance Requests | Null-One</title>
+
+  <meta name="description" content="Hire Null-One for writing, programming, editing, OSINT, cybersecurity, and website checks. Send a project request."/>
+  <meta name="keywords" content="Null-One, freelance, writing, programming, editing, OSINT, cybersecurity, website audit"/>
+
+  <link rel="icon" href="Images/NullScribe.ico" type="image/x-icon">
+  <link rel="icon" href="Images/NullScribe.ico">
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    /* Page-specific additions. Everything else comes from style.css */
+    .service-list { display: grid; gap: 14px; margin-top: 18px; }
+    .service { border-left: 3px solid var(--accent, #59157D); padding: 4px 0 4px 14px; }
+    .service h3 { margin: 0 0 4px; }
+    .service p { margin: 0; }
+
+    .steps { margin: 14px 0 0; padding-left: 20px; }
+    .steps li { margin-bottom: 8px; }
+
+    .request-form { display: grid; gap: 16px; max-width: 640px; margin-top: 18px; }
+    .request-form label { display: grid; gap: 6px; font-weight: 600; }
+    .request-form input,
+    .request-form select,
+    .request-form textarea {
+      font: inherit;
+      padding: 10px 12px;
+      border: 1px solid #888;
+      border-radius: 6px;
+      background: transparent;
+      color: inherit;
+    }
+    .request-form textarea { min-height: 140px; resize: vertical; }
+    .request-form input:focus-visible,
+    .request-form select:focus-visible,
+    .request-form textarea:focus-visible,
+    .request-form button:focus-visible {
+      outline: 3px solid var(--accent, #59157D);
+      outline-offset: 2px;
+    }
+    .request-form fieldset { border: 1px solid #888; border-radius: 6px; padding: 10px 14px; }
+    .request-form legend { font-weight: 600; padding: 0 6px; }
+    .check { display: flex !important; grid-template-columns: none; gap: 8px; font-weight: 400 !important; align-items: center; margin: 4px 0; }
+
+    .request-form button {
+      font: inherit;
+      font-weight: 600;
+      padding: 12px 20px;
+      border: 0;
+      border-radius: 6px;
+      background: var(--accent, #59157D);
+      color: #fff;
+      cursor: pointer;
+      justify-self: start;
+    }
+    .form-status { min-height: 1.4em; margin: 0; }
+    .notice { font-size: 0.95em; opacity: 0.85; }
+  </style>
+</head>
+
+<body>
+
+  <nav>
+    <div class="logo"><a href="index.html">Null-One</a></div>
+    <div>
+      <a href="index.html#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#process">Process</a>
+      <a href="#request">Request</a>
+      <a href="https://shop.nullone.org/">Store</a>
+    </div>
+  </nav>
+
+  <header>
+    <h1>Freelance Requests</h1>
+    <p>Writing • Programming • Editing • OSINT • Cybersecurity • Website Checks</p>
+  </header>
+
+  <section class="section" id="services">
+    <h2>What I Take On</h2>
+    <p>Tell me what you need and I'll reply with a scope, a timeline, and a price before any work starts.</p>
+
+    <div class="service-list">
+      <div class="service">
+        <h3>Writing</h3>
+        <p>Articles, blog posts, technical explainers, and web copy. Topics I'm strongest in: tech, security, mathematics, and philosophy.</p>
+      </div>
+      <div class="service">
+        <h3>Programming</h3>
+        <p>Scripts, tools, automation, and small web projects. I can also fix or extend code you already have.</p>
+      </div>
+      <div class="service">
+        <h3>Editing</h3>
+        <p>Proofreading and line editing for clarity, grammar, and flow. Your voice stays yours.</p>
+      </div>
+      <div class="service">
+        <h3>OSINT</h3>
+        <p>Research from publicly available sources: verifying claims, tracing a domain or account's public footprint, and checking whether a business or offer is legitimate. Lawful, public information only.</p>
+      </div>
+      <div class="service">
+        <h3>Cybersecurity</h3>
+        <p>Security reviews of your own site or app, configuration checks, and plain-language reports with fixes. Testing happens only on systems you own or have written permission to test.</p>
+      </div>
+      <div class="service">
+        <h3>Website Checks</h3>
+        <p>A full pass over your site: broken links, speed, mobile layout, accessibility, SEO basics, and visible security issues, delivered as a prioritized list.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="process">
+    <h2>How It Works</h2>
+    <ol class="steps">
+      <li>Send the request form below. The more detail, the better the quote.</li>
+      <li>I reply within a few days with the scope, price, and timeline in writing.</li>
+      <li>We agree on the scope. Anything beyond it is quoted separately, so a small project can't quietly grow into a long one.</li>
+      <li>I deliver the work, you review it, and revisions within the agreed scope are included.</li>
+    </ol>
+    <p class="notice">
+      I won't do anything that targets people or systems without authorization. That includes unauthorized access, doxxing, stalking, or harassment, and I'll decline those requests.
+    </p>
+  </section>
+
+  <section class="section" id="request">
+    <h2>Send a Request</h2>
+    <p>This opens your email app with the request filled in. Nothing is sent until you press send.</p>
+
+    <form class="request-form" id="requestForm">
+      <label>
+        Your name
+        <input type="text" id="name" name="name" required autocomplete="name">
+      </label>
+
+      <label>
+        Your email
+        <input type="email" id="email" name="email" required autocomplete="email">
+      </label>
+
+      <fieldset>
+        <legend>Services needed</legend>
+        <label class="check"><input type="checkbox" name="service" value="Writing"> Writing</label>
+        <label class="check"><input type="checkbox" name="service" value="Programming"> Programming</label>
+        <label class="check"><input type="checkbox" name="service" value="Editing"> Editing</label>
+        <label class="check"><input type="checkbox" name="service" value="OSINT"> OSINT</label>
+        <label class="check"><input type="checkbox" name="service" value="Cybersecurity"> Cybersecurity</label>
+        <label class="check"><input type="checkbox" name="service" value="Website check"> Website check</label>
+      </fieldset>
+
+      <label>
+        Website or project link (if any)
+        <input type="url" id="link" name="link" placeholder="https://">
+      </label>
+
+      <label>
+        Deadline
+        <select id="deadline" name="deadline">
+          <option>Flexible</option>
+          <option>Within 1 week</option>
+          <option>Within 2 weeks</option>
+          <option>Within a month</option>
+          <option>Specific date (add it below)</option>
+        </select>
+      </label>
+
+      <label>
+        Budget range (optional)
+        <input type="text" id="budget" name="budget" placeholder="e.g. $100 to $250">
+      </label>
+
+      <label>
+        Project details
+        <textarea id="details" name="details" required placeholder="What do you need, what does done look like, and is there anything I should know up front?"></textarea>
+      </label>
+
+      <label class="check">
+        <input type="checkbox" id="authorized" required>
+        For any security or OSINT work, I own the target or have permission to have it tested or researched.
+      </label>
+
+      <button type="submit">Send request</button>
+      <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
+    </form>
+  </section>
+
+  <footer id="connect">
+    <h2 style="color: var(--accent);">Connect</h2>
+    <p>Prefer to write it yourself?</p>
+    <p>
+      Email me:
+      <a href="mailto:Null@NullOne.org" id="emailLink" onclick="copyEmail(event)">
+        Null@NullOne.org
+      </a>
+    </p>
+    <p>↑ Click the email to copy ↑</p>
+  </footer>
+
+  <script>
+    function copyEmail(event) {
+      event.preventDefault();
+      const email = event.target.textContent.trim();
+      navigator.clipboard.writeText(email).then(() => {
+        alert('Email copied to clipboard!');
+      });
+    }
+
+    document.getElementById('requestForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      const services = Array.from(document.querySelectorAll('input[name="service"]:checked'))
+        .map(function (c) { return c.value; });
+      const status = document.getElementById('formStatus');
+
+      if (services.length === 0) {
+        status.textContent = 'Choose at least one service so I know what to quote.';
+        return;
+      }
+
+      const v = function (id) { return document.getElementById(id).value.trim(); };
+
+      const body =
+        'Name: ' + v('name') + '\n' +
+        'Email: ' + v('email') + '\n' +
+        'Services: ' + services.join(', ') + '\n' +
+        'Link: ' + (v('link') || 'None') + '\n' +
+        'Deadline: ' + v('deadline') + '\n' +
+        'Budget: ' + (v('budget') || 'Not specified') + '\n' +
+        'Authorization confirmed for security/OSINT work: Yes\n\n' +
+        'Details:\n' + v('details');
+
+      const subject = 'Freelance request: ' + services.join(', ');
+      const mailto = 'mailto:Null@NullOne.org?subject=' + encodeURIComponent(subject) +
+                     '&body=' + encodeURIComponent(body);
+
+      status.textContent = 'Opening your email app. If nothing opens, email Null@NullOne.org directly with these details.';
+      window.location.href = mailto;
+    });
+  </script>
+
+  <script src="script.js"></script>
+</body>
+</html>
