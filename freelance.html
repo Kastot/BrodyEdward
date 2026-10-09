@@ -14,52 +14,73 @@
   <link rel="stylesheet" href="style.css">
 
   <style>
-    /* Page-specific additions. Everything else comes from style.css */
-    .service-list { display: grid; gap: 14px; margin-top: 18px; }
-    .service { border-left: 3px solid var(--accent, #59157D); padding: 4px 0 4px 14px; }
-    .service h3 { margin: 0 0 4px; }
-    .service p { margin: 0; }
+    /* Page-specific styles. Base look comes from style.css */
+    :root { --fl-accent: var(--accent, #59157D); --fl-line: rgba(128,128,128,.45); }
 
-    .steps { margin: 14px 0 0; padding-left: 20px; }
-    .steps li { margin-bottom: 8px; }
+    .wrap { max-width: 900px; margin: 0 auto; }
 
-    .request-form { display: grid; gap: 16px; max-width: 640px; margin-top: 18px; }
-    .request-form label { display: grid; gap: 6px; font-weight: 600; }
-    .request-form input,
-    .request-form select,
+    /* Services */
+    .service-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; margin-top: 20px; }
+    .service { border: 1px solid var(--fl-line); border-top: 4px solid var(--fl-accent); border-radius: 8px; padding: 16px 18px; }
+    .service h3 { margin: 0 0 6px; }
+    .service p { margin: 0; line-height: 1.5; }
+
+    /* Process */
+    .steps { list-style: none; margin: 20px 0 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 16px; counter-reset: step; }
+    .steps li { counter-increment: step; border: 1px solid var(--fl-line); border-radius: 8px; padding: 16px; line-height: 1.5; }
+    .steps li::before { content: counter(step); display: inline-grid; place-items: center; width: 28px; height: 28px; margin-bottom: 8px; border-radius: 50%; background: var(--fl-accent); color: #fff; font-weight: 700; }
+    .notice { margin-top: 20px; padding: 12px 16px; border-left: 4px solid var(--fl-accent); background: rgba(128,128,128,.12); border-radius: 0 8px 8px 0; line-height: 1.5; }
+
+    /* Form */
+    .request-form { margin-top: 20px; border: 1px solid var(--fl-line); border-radius: 10px; padding: 24px; display: grid; gap: 26px; }
+    .row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .field { display: grid; gap: 6px; }
+    .field > label, .group > .group-label { font-weight: 700; }
+    .hint { font-weight: 400; opacity: .75; font-size: .9em; }
+
+    .request-form input[type="text"],
+    .request-form input[type="email"],
+    .request-form input[type="url"],
     .request-form textarea {
-      font: inherit;
-      padding: 10px 12px;
-      border: 1px solid #888;
-      border-radius: 6px;
-      background: transparent;
-      color: inherit;
+      font: inherit; width: 100%; box-sizing: border-box; padding: 12px 14px;
+      border: 1px solid var(--fl-line); border-radius: 8px; background: transparent; color: inherit;
     }
-    .request-form textarea { min-height: 140px; resize: vertical; }
-    .request-form input:focus-visible,
-    .request-form select:focus-visible,
-    .request-form textarea:focus-visible,
-    .request-form button:focus-visible {
-      outline: 3px solid var(--accent, #59157D);
-      outline-offset: 2px;
-    }
-    .request-form fieldset { border: 1px solid #888; border-radius: 6px; padding: 10px 14px; }
-    .request-form legend { font-weight: 600; padding: 0 6px; }
-    .check { display: flex !important; grid-template-columns: none; gap: 8px; font-weight: 400 !important; align-items: center; margin: 4px 0; }
+    .request-form textarea { min-height: 150px; resize: vertical; line-height: 1.5; }
+    .request-form input::placeholder, .request-form textarea::placeholder { opacity: .55; }
+    .request-form input:focus, .request-form textarea:focus { outline: 3px solid var(--fl-accent); outline-offset: 1px; border-color: transparent; }
 
-    .request-form button {
-      font: inherit;
-      font-weight: 600;
-      padding: 12px 20px;
-      border: 0;
-      border-radius: 6px;
-      background: var(--accent, #59157D);
-      color: #fff;
-      cursor: pointer;
-      justify-self: start;
+    /* Selectable buttons (real checkboxes/radios underneath) */
+    .group { border: 0; padding: 0; margin: 0; min-width: 0; }
+    .group-label { padding: 0; margin-bottom: 10px; display: block; }
+    .chips { display: flex; flex-wrap: wrap; gap: 10px; }
+    .chip { position: relative; }
+    .chip input { position: absolute; opacity: 0; inset: 0; width: 100%; height: 100%; margin: 0; cursor: pointer; }
+    .chip span {
+      display: inline-flex; align-items: center; gap: 8px; padding: 10px 16px;
+      border: 1px solid var(--fl-line); border-radius: 999px; cursor: pointer; user-select: none;
+      transition: background .15s, border-color .15s;
     }
-    .form-status { min-height: 1.4em; margin: 0; }
-    .notice { font-size: 0.95em; opacity: 0.85; }
+    .chip:hover span { border-color: var(--fl-accent); }
+    .chip input:checked + span { background: var(--fl-accent); border-color: var(--fl-accent); color: #fff; font-weight: 600; }
+    .chip input:checked + span::before { content: "\2713"; }
+    .chip input:focus-visible + span { outline: 3px solid var(--fl-accent); outline-offset: 2px; }
+
+    /* Authorization box appears only for OSINT / security */
+    .auth { display: none; border: 1px solid var(--fl-accent); border-radius: 8px; padding: 14px 16px; }
+    .auth.show { display: block; }
+    .auth label { display: flex; gap: 10px; align-items: flex-start; line-height: 1.5; cursor: pointer; }
+    .auth input { margin-top: 4px; width: 18px; height: 18px; flex: none; accent-color: var(--fl-accent); }
+
+    .submit { font: inherit; font-weight: 700; padding: 14px 28px; border: 0; border-radius: 8px; background: var(--fl-accent); color: #fff; cursor: pointer; justify-self: start; }
+    .submit:hover { filter: brightness(1.15); }
+    .submit:focus-visible { outline: 3px solid var(--fl-accent); outline-offset: 3px; }
+    .form-status { margin: 0; min-height: 1.4em; font-weight: 600; }
+
+    @media (max-width: 600px) {
+      .row { grid-template-columns: 1fr; }
+      .request-form { padding: 16px; }
+      .submit { justify-self: stretch; }
+    }
   </style>
 </head>
 
@@ -82,109 +103,127 @@
   </header>
 
   <section class="section" id="services">
-    <h2>What I Take On</h2>
-    <p>Tell me what you need and I'll reply with a scope, a timeline, and a price before any work starts.</p>
+    <div class="wrap">
+      <h2>What I Take On</h2>
+      <p>Tell me what you need and I'll reply with a scope, a timeline, and a price before any work starts.</p>
 
-    <div class="service-list">
-      <div class="service">
-        <h3>Writing</h3>
-        <p>Articles, blog posts, technical explainers, and web copy. Topics I'm strongest in: tech, security, mathematics, and philosophy.</p>
-      </div>
-      <div class="service">
-        <h3>Programming</h3>
-        <p>Scripts, tools, automation, and small web projects. I can also fix or extend code you already have.</p>
-      </div>
-      <div class="service">
-        <h3>Editing</h3>
-        <p>Proofreading and line editing for clarity, grammar, and flow. Your voice stays yours.</p>
-      </div>
-      <div class="service">
-        <h3>OSINT</h3>
-        <p>Research from publicly available sources: verifying claims, tracing a domain or account's public footprint, and checking whether a business or offer is legitimate. Lawful, public information only.</p>
-      </div>
-      <div class="service">
-        <h3>Cybersecurity</h3>
-        <p>Security reviews of your own site or app, configuration checks, and plain-language reports with fixes. Testing happens only on systems you own or have written permission to test.</p>
-      </div>
-      <div class="service">
-        <h3>Website Checks</h3>
-        <p>A full pass over your site: broken links, speed, mobile layout, accessibility, SEO basics, and visible security issues, delivered as a prioritized list.</p>
+      <div class="service-grid">
+        <div class="service">
+          <h3>Writing</h3>
+          <p>Articles, blog posts, technical explainers, and web copy. Strongest in tech, security, mathematics, and philosophy.</p>
+        </div>
+        <div class="service">
+          <h3>Programming</h3>
+          <p>Scripts, tools, automation, and small web projects. I can also fix or extend code you already have.</p>
+        </div>
+        <div class="service">
+          <h3>Editing</h3>
+          <p>Proofreading and line editing for clarity, grammar, and flow. Your voice stays yours.</p>
+        </div>
+        <div class="service">
+          <h3>OSINT</h3>
+          <p>Research from public sources: verifying claims, tracing a domain's public footprint, or checking whether a business or offer is legitimate.</p>
+        </div>
+        <div class="service">
+          <h3>Cybersecurity</h3>
+          <p>Security reviews of your own site or app, configuration checks, and plain-language reports with fixes.</p>
+        </div>
+        <div class="service">
+          <h3>Website Checks</h3>
+          <p>Broken links, speed, mobile layout, accessibility, SEO basics, and visible security issues, delivered as a prioritized list.</p>
+        </div>
       </div>
     </div>
   </section>
 
   <section class="section" id="process">
-    <h2>How It Works</h2>
-    <ol class="steps">
-      <li>Send the request form below. The more detail, the better the quote.</li>
-      <li>I reply within a few days with the scope, price, and timeline in writing.</li>
-      <li>We agree on the scope. Anything beyond it is quoted separately, so a small project can't quietly grow into a long one.</li>
-      <li>I deliver the work, you review it, and revisions within the agreed scope are included.</li>
-    </ol>
-    <p class="notice">
-      I won't do anything that targets people or systems without authorization. That includes unauthorized access, doxxing, stalking, or harassment, and I'll decline those requests.
-    </p>
+    <div class="wrap">
+      <h2>How It Works</h2>
+      <ol class="steps">
+        <li>Send the request form below. More detail means a better quote.</li>
+        <li>I reply with the scope, price, and timeline in writing.</li>
+        <li>We agree on the scope. Anything beyond it is quoted separately.</li>
+        <li>I deliver, you review, and in-scope revisions are included.</li>
+      </ol>
+      <p class="notice">
+        I only do security and OSINT work on systems and information you're authorized to test or research. I decline anything involving unauthorized access, doxxing, stalking, or harassment.
+      </p>
+    </div>
   </section>
 
   <section class="section" id="request">
-    <h2>Send a Request</h2>
-    <p>This opens your email app with the request filled in. Nothing is sent until you press send.</p>
+    <div class="wrap">
+      <h2>Send a Request</h2>
+      <p>This opens your email app with the request filled in. Nothing is sent until you press send.</p>
 
-    <form class="request-form" id="requestForm">
-      <label>
-        Your name
-        <input type="text" id="name" name="name" required autocomplete="name">
-      </label>
+      <form class="request-form" id="requestForm" novalidate>
 
-      <label>
-        Your email
-        <input type="email" id="email" name="email" required autocomplete="email">
-      </label>
+        <div class="row">
+          <div class="field">
+            <label for="name">Your name</label>
+            <input type="text" id="name" autocomplete="name" placeholder="Jane Doe">
+          </div>
+          <div class="field">
+            <label for="email">Your email</label>
+            <input type="email" id="email" autocomplete="email" placeholder="you@example.com">
+          </div>
+        </div>
 
-      <fieldset>
-        <legend>Services needed</legend>
-        <label class="check"><input type="checkbox" name="service" value="Writing"> Writing</label>
-        <label class="check"><input type="checkbox" name="service" value="Programming"> Programming</label>
-        <label class="check"><input type="checkbox" name="service" value="Editing"> Editing</label>
-        <label class="check"><input type="checkbox" name="service" value="OSINT"> OSINT</label>
-        <label class="check"><input type="checkbox" name="service" value="Cybersecurity"> Cybersecurity</label>
-        <label class="check"><input type="checkbox" name="service" value="Website check"> Website check</label>
-      </fieldset>
+        <fieldset class="group">
+          <legend class="group-label">What do you need? <span class="hint">Pick one or more</span></legend>
+          <div class="chips">
+            <label class="chip"><input type="checkbox" name="service" value="Writing"><span>Writing</span></label>
+            <label class="chip"><input type="checkbox" name="service" value="Programming"><span>Programming</span></label>
+            <label class="chip"><input type="checkbox" name="service" value="Editing"><span>Editing</span></label>
+            <label class="chip"><input type="checkbox" name="service" value="OSINT" data-sensitive><span>OSINT</span></label>
+            <label class="chip"><input type="checkbox" name="service" value="Cybersecurity" data-sensitive><span>Cybersecurity</span></label>
+            <label class="chip"><input type="checkbox" name="service" value="Website check"><span>Website check</span></label>
+          </div>
+        </fieldset>
 
-      <label>
-        Website or project link (if any)
-        <input type="url" id="link" name="link" placeholder="https://">
-      </label>
+        <fieldset class="group">
+          <legend class="group-label">When do you need it?</legend>
+          <div class="chips">
+            <label class="chip"><input type="radio" name="deadline" value="As soon as possible"><span>ASAP</span></label>
+            <label class="chip"><input type="radio" name="deadline" value="Within 1 week"><span>1 week</span></label>
+            <label class="chip"><input type="radio" name="deadline" value="Within 2 weeks"><span>2 weeks</span></label>
+            <label class="chip"><input type="radio" name="deadline" value="Within a month"><span>1 month</span></label>
+            <label class="chip"><input type="radio" name="deadline" value="Flexible" checked><span>Flexible</span></label>
+          </div>
+        </fieldset>
 
-      <label>
-        Deadline
-        <select id="deadline" name="deadline">
-          <option>Flexible</option>
-          <option>Within 1 week</option>
-          <option>Within 2 weeks</option>
-          <option>Within a month</option>
-          <option>Specific date (add it below)</option>
-        </select>
-      </label>
+        <fieldset class="group">
+          <legend class="group-label">Budget <span class="hint">Optional</span></legend>
+          <div class="chips">
+            <label class="chip"><input type="radio" name="budget" value="Under $100"><span>Under $100</span></label>
+            <label class="chip"><input type="radio" name="budget" value="$100 to $300"><span>$100 to $300</span></label>
+            <label class="chip"><input type="radio" name="budget" value="$300 to $1,000"><span>$300 to $1,000</span></label>
+            <label class="chip"><input type="radio" name="budget" value="$1,000+"><span>$1,000+</span></label>
+            <label class="chip"><input type="radio" name="budget" value="Not sure yet" checked><span>Not sure yet</span></label>
+          </div>
+        </fieldset>
 
-      <label>
-        Budget range (optional)
-        <input type="text" id="budget" name="budget" placeholder="e.g. $100 to $250">
-      </label>
+        <div class="field">
+          <label for="link">Website or project link <span class="hint">Optional</span></label>
+          <input type="url" id="link" placeholder="https://">
+        </div>
 
-      <label>
-        Project details
-        <textarea id="details" name="details" required placeholder="What do you need, what does done look like, and is there anything I should know up front?"></textarea>
-      </label>
+        <div class="field">
+          <label for="details">Project details</label>
+          <textarea id="details" placeholder="What do you need, what does done look like, and is there anything I should know up front?"></textarea>
+        </div>
 
-      <label class="check">
-        <input type="checkbox" id="authorized" required>
-        For any security or OSINT work, I own the target or have permission to have it tested or researched.
-      </label>
+        <div class="auth" id="auth">
+          <label>
+            <input type="checkbox" id="authorized">
+            <span>I own the target of this security or OSINT work, or I have permission to have it tested or researched.</span>
+          </label>
+        </div>
 
-      <button type="submit">Send request</button>
-      <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
-    </form>
+        <button type="submit" class="submit">Send request</button>
+        <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
+      </form>
+    </div>
   </section>
 
   <footer id="connect">
@@ -208,36 +247,57 @@
       });
     }
 
-    document.getElementById('requestForm').addEventListener('submit', function (e) {
+    const form = document.getElementById('requestForm');
+    const status = document.getElementById('formStatus');
+    const auth = document.getElementById('auth');
+
+    function sensitiveSelected() {
+      return !!form.querySelector('input[data-sensitive]:checked');
+    }
+
+    // Show the authorization box only for OSINT or cybersecurity
+    form.addEventListener('change', function () {
+      auth.classList.toggle('show', sensitiveSelected());
+    });
+
+    form.addEventListener('submit', function (e) {
       e.preventDefault();
 
-      const services = Array.from(document.querySelectorAll('input[name="service"]:checked'))
+      const val = function (id) { return document.getElementById(id).value.trim(); };
+      const checked = function (name) {
+        const el = form.querySelector('input[name="' + name + '"]:checked');
+        return el ? el.value : '';
+      };
+      const services = Array.from(form.querySelectorAll('input[name="service"]:checked'))
         .map(function (c) { return c.value; });
-      const status = document.getElementById('formStatus');
 
-      if (services.length === 0) {
-        status.textContent = 'Choose at least one service so I know what to quote.';
-        return;
+      const fail = function (msg, id) {
+        status.textContent = msg;
+        if (id) document.getElementById(id).focus();
+      };
+
+      if (!val('name')) return fail('Enter your name.', 'name');
+      if (!/^\S+@\S+\.\S+$/.test(val('email'))) return fail('Enter a valid email so I can reply.', 'email');
+      if (services.length === 0) return fail('Pick at least one service.');
+      if (!val('details')) return fail('Add a few details about the project.', 'details');
+      if (sensitiveSelected() && !document.getElementById('authorized').checked) {
+        return fail('Confirm you have authorization for the security or OSINT work.', 'authorized');
       }
 
-      const v = function (id) { return document.getElementById(id).value.trim(); };
-
       const body =
-        'Name: ' + v('name') + '\n' +
-        'Email: ' + v('email') + '\n' +
+        'Name: ' + val('name') + '\n' +
+        'Email: ' + val('email') + '\n' +
         'Services: ' + services.join(', ') + '\n' +
-        'Link: ' + (v('link') || 'None') + '\n' +
-        'Deadline: ' + v('deadline') + '\n' +
-        'Budget: ' + (v('budget') || 'Not specified') + '\n' +
-        'Authorization confirmed for security/OSINT work: Yes\n\n' +
-        'Details:\n' + v('details');
+        'Deadline: ' + checked('deadline') + '\n' +
+        'Budget: ' + checked('budget') + '\n' +
+        'Link: ' + (val('link') || 'None') + '\n' +
+        (sensitiveSelected() ? 'Authorization confirmed for security/OSINT work: Yes\n' : '') +
+        '\nDetails:\n' + val('details');
 
       const subject = 'Freelance request: ' + services.join(', ');
-      const mailto = 'mailto:Null@NullOne.org?subject=' + encodeURIComponent(subject) +
-                     '&body=' + encodeURIComponent(body);
-
-      status.textContent = 'Opening your email app. If nothing opens, email Null@NullOne.org directly with these details.';
-      window.location.href = mailto;
+      status.textContent = 'Opening your email app. If nothing opens, email Null@NullOne.org with these details.';
+      window.location.href = 'mailto:Null@NullOne.org?subject=' + encodeURIComponent(subject) +
+                             '&body=' + encodeURIComponent(body);
     });
   </script>
 
